@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout layout="scroll" id="pgl1">
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+            <af:outputText id="ot1" value="Approve Student Update Request"
+                           inlineStyle="font-size: 14px; font-weight: bold;"/>
+            <af:spacer height="10px" id="s1"/>
+            <af:panelGroupLayout id="pgl5" halign="left" layout="vertical"
+                                 styleClass="AFStretchWidth">
+                <af:outputText id="ot2" escape="false"
+                               value="#{pageFlowScope.studentProfileCrudBean.errors}"
+                               rendered="#{pageFlowScope.studentProfileCrudBean.registerationFailed}"/>
+                <af:spacer id="s9"
+                           rendered="#{pageFlowScope.studentProfileCrudBean.registerationFailed}"
+                           height="10px"/>
+            </af:panelGroupLayout>
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="6">
+                <af:panelLabelAndMessage for="it2" id="plam5"
+                                         label="First Name"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.studentProfileCrudBean.firstName}"
+                                  simple="true" id="it2"
+                                  label="First Name"
+                                  requiredMessageDetail="First Name is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s6"/>
+                <af:panelLabelAndMessage for="it3" id="plam6"
+                                         label="Last Name"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.studentProfileCrudBean.lastName}"
+                                  label="Last Name" simple="true" id="it3"
+                                  requiredMessageDetail="Last Name is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s7"/>
+                <af:panelLabelAndMessage for="it4" id="plam7" label="Email"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.studentProfileCrudBean.email}"
+                                  simple="true" id="it4" 
+                                  label="Email"
+                                  requiredMessageDetail="Email is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s15"/>
+                <af:panelLabelAndMessage for="it6" id="plam9" label="Mobile"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.studentProfileCrudBean.mobile}"
+                                  simple="true" id="it6"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s10"/>
+                <af:panelLabelAndMessage for="it7" id="plam10" label="Phone"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.studentProfileCrudBean.phone}"
+                                  simple="true" id="it7"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s11"/>
+                <af:panelLabelAndMessage for="it8" id="plam11" label="Address"
+                                         labelStyle="font-weight: bold; font-size: 12px; vertical-align:top;">
+                    <af:inputText value="#{pageFlowScope.studentProfileCrudBean.address}"
+                                  simple="true" id="it8"
+                                  columns="50" rows="5"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s14"/>
+            </af:panelFormLayout>
+            <af:panelGroupLayout layout="horizontal" halign="left" id="pgl3">
+                <af:commandButton text="Approve" id="cb2"
+                                  action="#{pageFlowScope.studentProfileCrudBean.approveStudentRequestAction}"/>
+                <af:spacer width="10px" id="s13"/>
+                <af:commandButton text="Cancel" immediate="true" id="cb1"
+                                  action="refresh"/>
+            </af:panelGroupLayout>
+        </af:panelGroupLayout>
+    </af:panelGroupLayout>
+</jsp:root>

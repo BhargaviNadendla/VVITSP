@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Resolve Query">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="vertical"
+                             inlineStyle="min-height: 90px;">
+          <af:spacer width="10" height="20" id="s1"/>
+          <af:panelGroupLayout id="pgl5" halign="left" layout="vertical"
+                               styleClass="AFStretchWidth">
+            <af:outputText id="ot2" escape="false"
+                           value="#{pageFlowScope.resolveQueryDetailsBean.errors}"
+                           rendered="#{pageFlowScope.resolveQueryDetailsBean.registerationFailed}"/>
+            <af:spacer id="s9"
+                       rendered="#{pageFlowScope.resolveQueryDetailsBean.registerationFailed}"
+                       height="10px"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl3" halign="left" layout="vertical"
+                               styleClass="AFStretchWidth">
+            <af:panelFormLayout id="pfl1">
+              <af:panelLabelAndMessage for="ot1" id="plam6" label="Question"
+                                       labelStyle="font-weight: bold; font-size: 12px; vertical-align: top;">
+                <af:outputText value="#{pageFlowScope.resolveQueryDetailsBean.question}"
+                               id="ot1"/>
+              </af:panelLabelAndMessage>
+              <af:spacer height="10px" id="s5"/>
+              <af:panelLabelAndMessage for="it3" id="plam1" label="* Answer"
+                                       labelStyle="font-weight: bold; font-size: 12px; vertical-align: top;">
+                <af:inputText value="#{pageFlowScope.resolveQueryDetailsBean.answer}"
+                              label="Answer" simple="true" id="it3"
+                              required="true" columns="50" rows="5" inlineStyle="padding-left:5px"
+                              requiredMessageDetail="Answer is mandatory"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelGroupLayout>
+          <af:spacer height="10px" id="s2"/>
+          <af:panelGroupLayout layout="horizontal" id="pgl2" halign="center">
+            <af:commandButton text="Save" id="cb1"
+                              action="#{pageFlowScope.resolveQueryDetailsBean.saveAction}"/>
+            <af:spacer width="10px" id="s3"/>
+            <af:commandButton action="backToListView" text="Cancel" id="cb2"
+                              immediate="true"/>
+          </af:panelGroupLayout>
+          <af:spacer width="10" height="20" id="s4"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

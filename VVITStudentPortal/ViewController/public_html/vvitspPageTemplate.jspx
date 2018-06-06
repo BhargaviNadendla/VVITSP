@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>templateDef2</display-name>
+        <facet>
+          <facet-name>content</facet-name>
+        </facet>
+      </component>
+    </af:xmlContent>
+    <af:panelSplitter orientation="vertical" splitterPosition="50" id="pt_ps1">
+      <f:facet name="first">
+        <f:subview id="header">
+          <jsp:include page="/header.jsff"/>
+        </f:subview>
+      </f:facet>
+      <f:facet name="second">
+        <af:panelSplitter orientation="vertical" positionedFromEnd="true"
+                          splitterPosition="96" id="pt_ps2">
+          <f:facet name="first">
+            <!-- id="af_one_column_header_and_footer_stretched_with_splitter"   -->
+            <af:panelGroupLayout id="pt_pgl1" halign="center" layout="vertical"
+                                 inlineStyle="width:1010px; margin: auto;">
+              <af:panelGroupLayout layout="horizontal" id="pt_pgl2"
+                                   halign="center">
+                <h:graphicImage id="pt_gi1" value="/img/logo.png"/>
+                <af:spacer width="20px" id="pt_s1"/>
+                <h:graphicImage id="pt_gi2" value="/img/font.png"/>
+              </af:panelGroupLayout>
+              <af:spacer height="30px" id="pt_s2"/>
+              <af:facetRef facetName="content"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="second">
+            <f:subview id="pt_s3">
+              <jsp:include page="/footer.jsff"/>
+            </f:subview>
+          </f:facet>
+        </af:panelSplitter>
+      </f:facet>
+    </af:panelSplitter>
+  </af:pageTemplateDef>
+</jsp:root>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="studentsListViewPageDef"
+                Package="admin">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="StudentDetailsROVO1" RangeSize="25"
+              DataControl="CommonAMDataControl"
+              id="StudentDetailsROVO1Iterator"/>
+    <searchRegion Criteria="findStudentDetailsVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="StudentDetailsROVO1Iterator"
+                  id="findStudentDetailsVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="StudentDetailsROVO1Iterator" id="StudentDetailsROVO1">
+      <nodeDefinition DefName="vvitsp.model.bc.view.StudentDetailsROVO"
+                      Name="StudentDetailsROVO10">
+        <AttrNames>
+          <Item Value="RollNo"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Phone"/>
+          <Item Value="Mobile"/>
+          <Item Value="LastUpdateDate"/>
+          <Item Value="Email"/>
+          <Item Value="BranchId"/>
+          <Item Value="SectionId"/>
+          <Item Value="IsMonitor"/>
+          <Item Value="SemesterId"/>
+          <Item Value="StudentId"/>
+          <Item Value="UpdateRequest"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

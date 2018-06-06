@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="adminQueriesCrudTF">
+    <default-activity id="__5">initQueriesInfo</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__4">adminQueriesBean</managed-bean-name>
+      <managed-bean-class id="__3">vvitsp.view.beans.AdminQueriesBean</managed-bean-class>
+      <managed-bean-scope id="__1">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="initQueriesInfo">
+      <method>#{pageFlowScope.adminQueriesBean.initQueriesInfo}</method>
+      <outcome id="__11">
+        <fixed-outcome>initQueriesInfo</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="queriesListView">
+      <page>/admin/queriesListView.jsff</page>
+    </view>
+    <task-flow-call id="resolveQueryTF">
+      <task-flow-reference>
+        <document>/WEB-INF/resolveQueryTF.xml</document>
+        <id>resolveQueryTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__21">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="viewQueryDetailsTF">
+      <task-flow-reference>
+        <document>/WEB-INF/viewQueryDetailsTF.xml</document>
+        <id>viewQueryDetailsTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__20">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">initQueriesInfo</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">initQueriesInfo</from-outcome>
+        <to-activity-id id="__8">queriesListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">queriesListView</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome id="__16">resolveQuery</from-outcome>
+        <to-activity-id id="__14">resolveQueryTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__19">viewQuery</from-outcome>
+        <to-activity-id id="__17">viewQueryDetailsTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

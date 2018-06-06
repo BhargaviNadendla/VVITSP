@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:spacer id="s1" height="20px"/>
+    <af:panelGroupLayout id="pgl2" layout="vertical" halign="left"
+                         inlineStyle="width:70%; ">
+      <af:outputText value="Update Profile" id="ot1"
+                     inlineStyle="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; text-align:left;"/>
+      <af:spacer height="10px" id="s6"/>
+      <af:outputText value="#{pageFlowScope.studentProfileBean.failureMessage}"
+                     id="ot3"
+                     rendered="#{pageFlowScope.studentProfileBean.updationFailed}"
+                     inlineStyle="font-family:Arial, Helvetica, sans-serif; font-weight:bold; text-align:left; color:Red;"/>
+      <af:spacer height="10px" id="s7"
+                 rendered="#{pageFlowScope.studentProfileBean.updationFailed}"/>
+      <af:panelGroupLayout id="pgl6" layout="vertical" halign="left">
+        <af:panelFormLayout id="pfl1">
+          <af:panelLabelAndMessage id="plam1" label="Registered No:"
+                                   labelStyle="font-size: 12px; font-weight: bold;">
+            <af:outputText id="ot4"
+                           value="#{pageFlowScope.studentProfileBean.student.rollNo}"/>
+          </af:panelLabelAndMessage>
+          <af:spacer id="s2" height="10px"/>
+          <af:panelLabelAndMessage id="plam2" label="* First Name"
+                                   labelStyle="font-size: 12px; font-weight: bold;">
+            <af:inputText id="it1" label="First Name" required="true"
+                          simple="true"
+                          requiredMessageDetail="First Name is Mandatory"
+                          value="#{pageFlowScope.studentProfileBean.studentHistory.firstName}"
+                          maximumLength="50"/>
+          </af:panelLabelAndMessage>
+          <af:spacer id="s3" height="10px"/>
+          <af:panelLabelAndMessage id="plam7" label="* Last Name"
+                                   labelStyle="font-size: 12px; font-weight: bold;">
+            <af:inputText id="it2" label="Last Name" required="true"
+                          requiredMessageDetail="Last Name is Mandatory"
+                          simple="true"
+                          value="#{pageFlowScope.studentProfileBean.studentHistory.lastName}"
+                          maximumLength="50"/>
+          </af:panelLabelAndMessage>
+          <af:spacer id="s9" height="10px"/>
+          <af:panelLabelAndMessage id="plam3" label="* Email"
+                                   labelStyle="font-size: 12px; font-weight: bold;">
+            <af:inputText id="it3" label="Email" required="true"
+                          requiredMessageDetail="Email is Mandatory"
+                          simple="true"
+                          value="#{pageFlowScope.studentProfileBean.studentHistory.email}"
+                          maximumLength="50"/>
+          </af:panelLabelAndMessage>
+          <af:spacer id="s4" height="10px"/>
+          <af:panelLabelAndMessage id="plam4" label="* Phone"
+                                   labelStyle="font-size: 12px; font-weight: bold;">
+            <af:inputText id="it4" label="Phone" required="true"
+                          requiredMessageDetail="Phone is Mandatory"
+                          simple="true"
+                          value="#{pageFlowScope.studentProfileBean.studentHistory.phone}"
+                          maximumLength="15"/>
+          </af:panelLabelAndMessage>
+          <af:spacer id="s5" height="10px"/>
+          <af:panelLabelAndMessage id="plam5" label="* Mobile"
+                                   labelStyle="font-size: 12px; font-weight: bold;">
+            <af:inputText id="it5" label="Mobile" required="true"
+                          requiredMessageDetail="Mobile is Mandatory"
+                          simple="true"
+                          value="#{pageFlowScope.studentProfileBean.studentHistory.mobile}"
+                          maximumLength="15"/>
+          </af:panelLabelAndMessage>
+          <af:spacer id="s11" height="10px"/>
+          <af:panelLabelAndMessage id="plam6" label="* Address"
+                                   labelStyle="vertical-align:top; font-size: 12px; font-weight: bold;">
+            <af:inputText id="it6" label="Address" required="true"
+                          requiredMessageDetail="Address is Mandatory"
+                          columns="40" rows="5" simple="true"
+                          value="#{pageFlowScope.studentProfileBean.studentHistory.address}"
+                          maximumLength="1000"/>
+          </af:panelLabelAndMessage>
+          <af:spacer id="s12" height="10px"/>
+        </af:panelFormLayout>
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+          <af:commandButton text="Update" id="cb1"
+                            actionListener="#{pageFlowScope.studentProfileBean.updateProfileAction}"/>
+          <af:spacer width="10px" id="s10"/>
+          <af:commandButton text="Cancel" id="cb2" immediate="true"
+                            action="return"/>
+          <af:popup id="p1" contentDelivery="immediate" childCreation="deferred"
+                    autoCancel="disabled"
+                    binding="#{pageFlowScope.studentProfileBean.profileSuccessPopup}">
+            <af:panelWindow id="pw1" title="Message">
+              <af:panelGroupLayout layout="vertical" id="pgl4">
+                <af:outputText value="Profile Updated successfully" id="ot2"/>
+                <af:spacer height="10px" id="s8"/>
+                <af:panelGroupLayout layout="horizontal" id="pgl5"
+                                     halign="center">
+                  <af:commandButton id="cb3" text="Ok"
+                                    action="#{pageFlowScope.studentProfileBean.returnToProfilePageAction}"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelWindow>
+          </af:popup>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

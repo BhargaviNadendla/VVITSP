@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout layout="scroll" id="pgl1">
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+            <af:outputText id="ot1" value="Create Subject"
+                           rendered="#{empty pageFlowScope.adminSubjectBean.subjectId}"
+                           inlineStyle="font-size: 14px; font-weight: bold;"/>
+            <af:outputText id="ot3" value="Edit Subject"
+                           rendered="#{not empty pageFlowScope.adminSubjectBean.subjectId}"
+                           inlineStyle="font-size: 14px; font-weight: bold;"/>
+            <af:spacer height="10px" id="s1"/>
+            <af:panelGroupLayout id="pgl5" halign="left" layout="vertical"
+                                 styleClass="AFStretchWidth">
+                <af:outputText id="ot2" escape="false"
+                               value="#{pageFlowScope.adminSubjectBean.errors}"
+                               rendered="#{pageFlowScope.adminSubjectBean.registerationFailed}"/>
+                <af:spacer id="s9"
+                           rendered="#{pageFlowScope.adminSubjectBean.registerationFailed}"
+                           height="10px"/>
+            </af:panelGroupLayout>
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="6">
+                <af:panelLabelAndMessage for="soc3" id="plam3"
+                                         label="* Semester"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:selectOneChoice id="soc3" label="Semester"
+                                        autoSubmit="true" required="true"
+                                        value="#{pageFlowScope.adminSubjectBean.semesterId}"
+                                        requiredMessageDetail="Select at least one Section"
+                                        simple="true">
+                        <f:selectItems id="si3"
+                                       value="#{pageFlowScope.adminSubjectBean.semesters}"/>
+                    </af:selectOneChoice>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s4"/>
+                <af:panelLabelAndMessage for="it1" id="plam4" label="* Code"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.adminSubjectBean.code}"
+                                  required="true" label="Code" simple="true"
+                                  requiredMessageDetail="Code is mandatory"
+                                  id="it1"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s5"/>
+                <af:panelLabelAndMessage for="it2" id="plam5"
+                                         label="* Name"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.adminSubjectBean.name}"
+                                  simple="true" id="it2" required="true"
+                                  label="Name"
+                                  requiredMessageDetail="Name is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s6"/>
+                <af:panelLabelAndMessage for="it3" id="plam6"
+                                         label="Description"
+                                         labelStyle="font-weight: bold; font-size: 12px; vertical-align: top">
+                    <af:inputText value="#{pageFlowScope.adminSubjectBean.description}"
+                                  label="Description" simple="true" id="it3"
+                                  required="true" columns="50" rows="5"
+                                  requiredMessageDetail="Description is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s7"/>
+                <af:selectBooleanCheckbox autoSubmit="true" simple="true"
+                                          value="#{pageFlowScope.adminSubjectBean.lab}"
+                                          text="Is this Subject, Lab of the Semester"
+                                          id="sbc1"
+                                          contentStyle="margin-left: -7px; font-weight:bold; font-size: 12px;"/>
+                <af:spacer height="10px" id="s14"/>
+            </af:panelFormLayout>
+            <af:panelGroupLayout layout="horizontal" halign="left" id="pgl3">
+                <af:commandButton text="Save" id="cb2"
+                                  action="#{pageFlowScope.adminSubjectBean.createOrEditSubjectDetailsAction}"/>
+                <af:spacer width="10px" id="s13"/>
+                <af:commandButton text="Cancel" immediate="true" id="cb1"
+                                  action="backToListView"/>
+            </af:panelGroupLayout>
+        </af:panelGroupLayout>
+    </af:panelGroupLayout>
+</jsp:root>

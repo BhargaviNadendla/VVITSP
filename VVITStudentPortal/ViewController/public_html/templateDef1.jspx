@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>templateDef1</display-name>
+        <facet>
+          <facet-name>content</facet-name>
+        </facet>
+      </component>
+    </af:xmlContent>
+    <af:panelStretchLayout id="pt_psl1">
+      <f:facet name="top">
+        <f:subview id="header">
+          <jsp:include page="/header.jsff"/>
+        </f:subview>
+      </f:facet>
+      <f:facet name="center">
+        <!-- id="af_one_column_header_and_footer_scroll"   -->
+        <af:panelGroupLayout layout="scroll" id="pt_pgl1">
+          <af:panelGroupLayout id="pt_pgl3" halign="center" layout="vertical"
+                               inlineStyle="width:1010px; margin: auto;">
+            <af:panelGroupLayout layout="horizontal" id="pt_pgl2"
+                                 halign="center">
+              <h:graphicImage id="pt_gi1" value="/img/logo.png"/>
+              <af:spacer width="20px" id="pt_s1"/>
+              <h:graphicImage id="pt_gi2" value="/img/font.png"/>
+            </af:panelGroupLayout>
+            <af:spacer height="30px" id="pt_s2"/>
+            <af:facetRef facetName="content"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="bottom">
+        <f:subview id="footer">
+          <jsp:include page="/footer.jsff"/>
+        </f:subview>
+      </f:facet>
+    </af:panelStretchLayout>
+  </af:pageTemplateDef>
+</jsp:root>

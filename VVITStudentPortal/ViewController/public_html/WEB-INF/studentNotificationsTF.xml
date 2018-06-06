@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="studentNotificationsTF">
+    <default-activity id="__5">getAllNotifications</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name id="__2">notificationBean</managed-bean-name>
+      <managed-bean-class id="__3">vvitsp.view.beans.NotificationBean</managed-bean-class>
+      <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="getAllNotifications">
+      <method>#{pageFlowScope.notificationBean.getAllNotifications}</method>
+      <outcome id="__11">
+        <fixed-outcome>getAllNotifications</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="allNotificationsView">
+      <page>/student/allNotificationsView.jsff</page>
+    </view>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">getAllNotifications</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">getAllNotifications</from-outcome>
+        <to-activity-id id="__9">allNotificationsView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

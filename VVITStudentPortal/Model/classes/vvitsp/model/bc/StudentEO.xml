@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="StudentEO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="VVITSP_STUDENT"
+  AliasName="StudentEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="StudentId"
+    IsNotNull="true"
+    Precision="18"
+    Scale="0"
+    ColumnName="STUDENT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_STUDENT"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="19"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RollNo"
+    IsNotNull="true"
+    Precision="12"
+    ColumnName="ROLL_NO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FirstName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="FIRST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastName"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="LAST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Dob"
+    ColumnName="DOB"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Doj"
+    ColumnName="DOJ"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Phone"
+    Precision="15"
+    ColumnName="PHONE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Mobile"
+    Precision="15"
+    ColumnName="MOBILE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Gender"
+    IsNotNull="true"
+    Precision="18"
+    Scale="0"
+    ColumnName="GENDER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="19"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Active"
+    IsNotNull="true"
+    Precision="1"
+    Scale="0"
+    ColumnName="ACTIVE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_STUDENT">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ParentEO"
+    Association="vvitsp.model.bc.VvitspParentFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.VvitspParentFk1Assoc.ParentEO"
+    AssociationOtherEnd="vvitsp.model.bc.VvitspParentFk1Assoc.StudentEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="LookupItemEO"
+    Association="vvitsp.model.bc.VvitspStudentFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.VvitspStudentFk1Assoc.LookupItemEO"
+    AssociationOtherEnd="vvitsp.model.bc.VvitspStudentFk1Assoc.StudentEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="StudentAttendanceEO"
+    Association="vvitsp.model.bc.VvitspStudentAttendanceFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.VvitspStudentAttendanceFk1Assoc.StudentAttendanceEO"
+    AssociationOtherEnd="vvitsp.model.bc.VvitspStudentAttendanceFk1Assoc.StudentEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="StudentBranchSectionEO"
+    Association="vvitsp.model.bc.VvitspStudentBrnhSectFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.VvitspStudentBrnhSectFk1Assoc.StudentBranchSectionEO"
+    AssociationOtherEnd="vvitsp.model.bc.VvitspStudentBrnhSectFk1Assoc.StudentEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="StudentSemesterExamEO"
+    Association="vvitsp.model.bc.VvitspStudentSemExamFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.VvitspStudentSemExamFk1Assoc.StudentSemesterExamEO"
+    AssociationOtherEnd="vvitsp.model.bc.VvitspStudentSemExamFk1Assoc.StudentEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="UserEO"
+    Association="vvitsp.model.bc.VvitspUserFk2Assoc"
+    AssociationEnd="vvitsp.model.bc.VvitspUserFk2Assoc.UserEO"
+    AssociationOtherEnd="vvitsp.model.bc.VvitspUserFk2Assoc.StudentEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC0014449">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014449"/>
+      <Attr Name="_checkCondition" Value='"ROLL_NO" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.RollNo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014450">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014450"/>
+      <Attr Name="_checkCondition" Value='"FIRST_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.FirstName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014451">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014451"/>
+      <Attr Name="_checkCondition" Value='"LAST_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.LastName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014452">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014452"/>
+      <Attr Name="_checkCondition" Value='"GENDER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.Gender"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014453">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014453"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014454">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014454"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014455">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014455"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014456">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014456"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014457">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014457"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0014458">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0014458"/>
+      <Attr Name="_checkCondition" Value='"ACTIVE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.Active"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="VvitspStudentPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="VVITSP_STUDENT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.StudentId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="VvitspStudentFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="VVITSP_LOOKUP_ITEM_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="VVITSP_STUDENT_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentEO.Gender"/>
+    </AttrArray>
+  </Key>
+</Entity>

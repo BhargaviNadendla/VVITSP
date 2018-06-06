@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1" layout="scroll">
+    <af:panelGroupLayout id="pgl2" layout="vertical">
+      <af:spacer id="s1" height="20px"/>
+      <af:outputText value="Post Your Query" id="ot1"
+                     inlineStyle="font-size: 14px; font-weight: bold;"/>
+      <af:spacer id="s2" height="10px"/>
+      <af:panelLabelAndMessage id="plam1" label="#{null}"
+                               inlineStyle="margin-left: -6px;">
+        <af:inputText value="#{pageFlowScope.queryBean.query.question}" id="it1"
+                      columns="50" rows="3" label="#{null}" simple="true"/>
+      </af:panelLabelAndMessage>
+      <af:spacer id="s4" height="10px"/>
+      <af:commandButton id="cb1" text="Post"
+                        actionListener="#{pageFlowScope.queryBean.postQueryAction}"/>
+    </af:panelGroupLayout>
+    <af:spacer id="s3" height="20px"/>
+    <af:panelGroupLayout id="pgl3" layout="vertical">
+      <af:outputText value="Your Previous Queries" id="ot2"
+                     inlineStyle="font-size: 14px; font-weight: bold;"/>
+      <af:spacer id="s5" height="10px"/>
+      <af:forEach items="#{pageFlowScope.queryBean.queries}" var="query"
+                  varStatus="i">
+        <af:panelGroupLayout layout="vertical" id="pgl4"
+                             inlineStyle="border: 1px solid rgb(195, 208, 223); padding: 10px; background-color: rgb(222, 228, 231); font-size: 12px; font-weight: bold;"
+                             styleClass="AFStretchWidth">
+          <af:outputText value="Q: #{query.question}" id="ot4"/>
+          <af:spacer id="s6" height="10px"/>
+          <af:outputText value="A: #{query.answer}" id="ot3"
+                         rendered="#{not empty query.answer}"/>
+          <af:outputText value="A: Not answered yet." id="ot5"
+                         rendered="#{empty query.answer}"/>
+        </af:panelGroupLayout>
+        <af:spacer id="s7" height="10px" rendered="#{!i.last}"/>
+      </af:forEach>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

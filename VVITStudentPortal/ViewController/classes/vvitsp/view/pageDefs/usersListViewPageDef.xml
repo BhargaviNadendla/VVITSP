@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="usersListViewPageDef"
+                Package="vvitsp.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="StaffUserROVO1" RangeSize="25"
+              DataControl="CommonAMDataControl" id="StaffUserROVO1Iterator"/>
+    <searchRegion Criteria="findByUserTypeEmailVC"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="StaffUserROVO1Iterator"
+                  id="findByUserTypeEmailVCQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="StaffUserROVO1Iterator" id="StaffUserROVO1">
+      <nodeDefinition DefName="vvitsp.model.bc.view.StaffUserROVO"
+                      Name="StaffUserROVO10">
+        <AttrNames>
+          <Item Value="Email"/>
+          <Item Value="Password"/>
+          <Item Value="UserType"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Phone"/>
+          <Item Value="Mobile"/>
+          <Item Value="IsHod"/>
+          <Item Value="BranchId"/>
+          <Item Value="LastUpdateDate1"/>
+          <Item Value="StaffId1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

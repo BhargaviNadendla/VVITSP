@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="All Notifications" id="ph1"/>
+    <af:spacer height="10px" id="s1"/>
+    <af:commandButton text="Post New Notification" id="cb1"
+                      action="createNotification" useWindow="true"
+                      windowHeight="160" windowWidth="450"
+                      returnListener="#{pageFlowScope.notificationDetailsBean.refreshNotificationListView}"
+                      partialSubmit="true"/>
+    <af:spacer height="10px" id="s2"/>
+    <af:table value="#{bindings.AdminNotificationROVO1.collectionModel}"
+              var="row" rows="#{bindings.AdminNotificationROVO1.rangeSize}"
+              emptyText="#{bindings.AdminNotificationROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.AdminNotificationROVO1.rangeSize}"
+              rowBandingInterval="0" styleClass="AFStretchWidth"
+              selectedRowKeys="#{bindings.AdminNotificationROVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.AdminNotificationROVO1.collectionModel.makeCurrent}"
+              rowSelection="single" id="t1">
+      <af:column id="c1" width="90" minimumWidth="90">
+        <f:facet name="header">
+          <af:outputText value="Actions"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot2"/>
+        </f:facet>
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+          <af:commandLink text="Edit" id="cl2" action="editNotification"
+                          partialSubmit="true" useWindow="true"
+                          windowHeight="160" windowWidth="450"
+                          returnListener="#{pageFlowScope.notificationDetailsBean.refreshNotificationListView}"/>
+          <af:commandLink text="Delete" id="cl3" action="deleteNotification"
+                          partialSubmit="true" useWindow="true"
+                          windowHeight="90" windowWidth="300"
+                          returnListener="#{pageFlowScope.notificationDetailsBean.refreshNotificationListView}"/>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.AdminNotificationROVO1.hints.Details.name}"
+                 sortable="false" width="770" minimumWidth="770" id="c2">
+        <f:facet name="header">
+          <af:outputText value="Details"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot11"/>
+        </f:facet>
+        <af:outputText value="#{row.Details}" id="ot3"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.AdminNotificationROVO1.hints.LastUpdateDate.name}"
+                 sortable="false" width="120" minimumWidth="120" id="c3">
+        <f:facet name="header">
+          <af:outputText value="Last Update Date"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot4"/>
+        </f:facet>
+        <af:outputText value="#{row.LastUpdateDate}" id="ot5"/>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

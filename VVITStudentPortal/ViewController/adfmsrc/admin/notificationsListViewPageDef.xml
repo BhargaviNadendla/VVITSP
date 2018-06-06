@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="notificationsListViewPageDef"
+                Package="admin">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AdminNotificationROVO1" RangeSize="25"
+              DataControl="CommonAMDataControl"
+              id="AdminNotificationROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AdminNotificationROVO1Iterator"
+          id="AdminNotificationROVO1">
+      <nodeDefinition DefName="vvitsp.model.bc.view.AdminNotificationROVO"
+                      Name="AdminNotificationROVO10">
+        <AttrNames>
+          <Item Value="Details"/>
+          <Item Value="LastUpdateDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

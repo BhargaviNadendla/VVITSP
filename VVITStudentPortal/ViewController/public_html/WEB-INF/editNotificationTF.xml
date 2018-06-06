@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="editNotificationTF">
+    <default-activity id="__1">fetchNotificationDetails</default-activity>
+    <managed-bean id="__9">
+      <managed-bean-name id="__11">createOrEditNotificationBean</managed-bean-name>
+      <managed-bean-class id="__10">vvitsp.view.beans.CreateOrEditNotificationBean</managed-bean-class>
+      <managed-bean-scope id="__8">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="fetchNotificationDetails">
+      <method>#{pageFlowScope.createOrEditNotificationBean.fetchNotificationDetails}</method>
+      <outcome id="__17">
+        <fixed-outcome>fetchNotificationDetails</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="editNotificationView">
+      <page>/admin/editNotificationView.jspx</page>
+    </view>
+    <task-flow-return id="backToListView">
+      <outcome id="__2">
+        <name>backToListView</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">editNotificationView</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">backToListView</from-outcome>
+        <to-activity-id id="__5">backToListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">fetchNotificationDetails</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__16">fetchNotificationDetails</from-outcome>
+        <to-activity-id id="__15">editNotificationView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

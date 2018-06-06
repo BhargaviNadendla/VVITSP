@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="createNotificationTF">
+    <default-activity id="__1">createNotificationView</default-activity>
+    <managed-bean id="__9">
+      <managed-bean-name id="__11">createOrEditNotificationBean</managed-bean-name>
+      <managed-bean-class id="__8">vvitsp.view.beans.CreateOrEditNotificationBean</managed-bean-class>
+      <managed-bean-scope id="__10">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="createNotificationView">
+      <page>/admin/createNotificationView.jspx</page>
+    </view>
+    <task-flow-return id="backToListView">
+      <outcome id="__2">
+        <name>backToListView</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">createNotificationView</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">backToListView</from-outcome>
+        <to-activity-id id="__5">backToListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

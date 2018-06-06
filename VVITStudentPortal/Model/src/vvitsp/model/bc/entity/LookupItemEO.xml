@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="LookupItemEO"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true"
+  DBObjectType="table"
+  DBObjectName="VVITSP_LOOKUP_ITEM"
+  AliasName="LookupItemEO"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="LookupItemId"
+    IsNotNull="true"
+    Precision="18"
+    Scale="0"
+    ColumnName="LOOKUP_ITEM_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_LOOKUP_ITEM"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="19"/>
+    </DesignTime>
+    <TransientExpression><![CDATA[(new oracle.jbo.server.SequenceImpl("vvitsp_row_id_seq", adf.object.getDBTransaction())).getSequenceNumber();]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="LookupTypeId"
+    IsNotNull="true"
+    Precision="18"
+    Scale="0"
+    ColumnName="LOOKUP_TYPE_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_LOOKUP_ITEM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="19"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Code"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_LOOKUP_ITEM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_LOOKUP_ITEM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="512"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_LOOKUP_ITEM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="512"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_LOOKUP_ITEM"
+    IsUpdateable="while_insert"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreationDate"
+    IsNotNull="true"
+    ColumnName="CREATION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="VVITSP_LOOKUP_ITEM"
+    IsUpdateable="while_insert"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdatedBy"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VVITSP_LOOKUP_ITEM"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastUpdateDate"
+    IsNotNull="true"
+    ColumnName="LAST_UPDATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="VVITSP_LOOKUP_ITEM"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ObjectVersionId"
+    IsNotNull="true"
+    Precision="10"
+    Scale="0"
+    ColumnName="OBJECT_VERSION_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_LOOKUP_ITEM"
+    HistoryColumn="VersionHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="11"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Active"
+    IsNotNull="true"
+    Precision="1"
+    Scale="0"
+    ColumnName="ACTIVE"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="VVITSP_LOOKUP_ITEM">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ExamEO"
+    Association="vvitsp.model.bc.entity.VvitspExamFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspExamFk1Assoc.ExamEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspExamFk1Assoc.LookupItemEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="LookupTypeEO"
+    Association="vvitsp.model.bc.entity.VvitspLookupItemFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspLookupItemFk1Assoc.LookupTypeEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspLookupItemFk1Assoc.LookupItemEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="ParentEO"
+    Association="vvitsp.model.bc.entity.VvitspParentFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspParentFk1Assoc.ParentEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspParentFk1Assoc.LookupItemEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="SemesterEO"
+    Association="vvitsp.model.bc.entity.VvitspSemesterFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspSemesterFk1Assoc.SemesterEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspSemesterFk1Assoc.LookupItemEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="StaffEO"
+    Association="vvitsp.model.bc.entity.VvitspStaffFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspStaffFk1Assoc.StaffEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspStaffFk1Assoc.LookupItemEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="StudentEO"
+    Association="vvitsp.model.bc.entity.VvitspStudentFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspStudentFk1Assoc.StudentEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspStudentFk1Assoc.LookupItemEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="StudentAttendanceEO"
+    Association="vvitsp.model.bc.entity.VvitspStudentAttendanceFk2Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspStudentAttendanceFk2Assoc.StudentAttendanceEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspStudentAttendanceFk2Assoc.LookupItemEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="UserEO"
+    Association="vvitsp.model.bc.entity.VvitspUserFk1Assoc"
+    AssociationEnd="vvitsp.model.bc.entity.VvitspUserFk1Assoc.UserEO"
+    AssociationOtherEnd="vvitsp.model.bc.entity.VvitspUserFk1Assoc.LookupItemEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC0015206">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015206"/>
+      <Attr Name="_checkCondition" Value='"LOOKUP_TYPE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.LookupTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015207">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015207"/>
+      <Attr Name="_checkCondition" Value='"CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.Code"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015208">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015208"/>
+      <Attr Name="_checkCondition" Value='"NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015209">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015209"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015210">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015210"/>
+      <Attr Name="_checkCondition" Value='"CREATION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.CreationDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015211">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015211"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.LastUpdatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015212">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015212"/>
+      <Attr Name="_checkCondition" Value='"LAST_UPDATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.LastUpdateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015213">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015213"/>
+      <Attr Name="_checkCondition" Value='"OBJECT_VERSION_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.ObjectVersionId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0015214">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0015214"/>
+      <Attr Name="_checkCondition" Value='"ACTIVE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.Active"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="VvitspLookupItemPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="VVITSP_LOOKUP_ITEM_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.LookupItemId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="VvitspLookupItemFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="VVITSP_LOOKUP_TYPE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="VVITSP_LOOKUP_ITEM_FK1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.entity.LookupItemEO.LookupTypeId"/>
+    </AttrArray>
+  </Key>
+</Entity>

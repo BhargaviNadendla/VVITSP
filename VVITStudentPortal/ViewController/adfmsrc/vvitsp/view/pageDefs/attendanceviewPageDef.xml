@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="attendanceviewPageDef"
+                Package="vvitsp.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="StudentAttendanceROVO1" RangeSize="-1"
+              DataControl="CommonAMDataControl"
+              id="StudentFirstYearAttendanceROVO1Iterator"/>
+  </executables>
+  <bindings>
+    <graph IterBinding="StudentFirstYearAttendanceROVO1Iterator"
+           id="StudentFirstYearAttendanceROVO12"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="BAR_VERT_CLUST">
+      <graphDataMap leafOnly="true">
+        <series>
+          <item value="Total"/>
+        </series>
+        <groups>
+          <data>
+            <item value="SoftwareEngineering" label="Software Engineering"/>
+            <item value="DatawarehousingMining"
+                  label="Datawarehousing &amp; Mining"/>
+            <item value="ComputerNetworks" label="Computer Networks"/>
+            <item value="DesignAnalysisOfAlgorithms"
+                  label="Design &amp; Analysis Of Algorithms"/>
+            <item value="WebTechnologies" label="Web Technologies"/>
+            <item value="IprPatents" label="IPR &amp; Patents"/>
+            <item value="CompNetworksNetworkProgLab"
+                  label="Computer Network Lab"/>
+            <item value="SoftwareEngineeringLab"
+                  label="Software Engineering Lab"/>
+            <item value="WebTechnologiesLab" label="Web Technologies Lab"/>
+          </data>
+        </groups>
+      </graphDataMap>
+    </graph>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="loginPageView">
+    <page>/loginPageView.jspx</page>
+  </view>
+  <view id="registerUserView">
+    <page>/registerUserView.jspx</page>
+  </view>
+  <view id="studentPortalView">
+    <page>/student/studentPortalView.jspx</page>
+  </view>
+  <router id="routingToUserPages">
+    <case>
+      <expression>#{sessionScope.loginBean.user.userType.student} </expression>
+      <outcome id="__38">studentPortal</outcome>
+    </case>
+    <default-outcome>adminPortal</default-outcome>
+  </router>
+  <view id="adminPortalView">
+    <page>/admin/adminPortalView.jspx</page>
+  </view>
+  <view id="forgetPasswordView">
+    <page>/forgetPasswordView.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id id="__2">*</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome id="__5">loginPage</from-outcome>
+      <to-activity-id id="__3">loginPageView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id id="__17">loginPageView</from-activity-id>
+    <control-flow-case id="__19">
+      <from-outcome id="__20">register</from-outcome>
+      <to-activity-id id="__18">registerUserView</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__27">
+      <from-outcome id="__29">portalAccess</from-outcome>
+      <to-activity-id id="__28">routingToUserPages</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__25">
+      <from-outcome id="__26">forgetPassword</from-outcome>
+      <to-activity-id id="__24">forgetPasswordView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__14">
+    <from-activity-id id="__15">registerUserView</from-activity-id>
+    <control-flow-case id="__22">
+      <from-outcome id="__23">loginPage</from-outcome>
+      <to-activity-id id="__21">loginPageView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__30">
+    <from-activity-id id="__31">routingToUserPages</from-activity-id>
+    <control-flow-case id="__33">
+      <from-outcome id="__34">adminPortal</from-outcome>
+      <to-activity-id id="__32">adminPortalView</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__35">
+      <from-outcome id="__37">studentPortal</from-outcome>
+      <to-activity-id id="__36">studentPortalView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__39">
+    <from-activity-id id="__40">forgetPasswordView</from-activity-id>
+    <control-flow-case id="__42">
+      <from-outcome id="__43">loginPage</from-outcome>
+      <to-activity-id id="__41">loginPageView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__6">
+    <managed-bean-name id="__9">headerBean</managed-bean-name>
+    <managed-bean-class id="__8">vvitsp.view.beans.HeaderBean</managed-bean-class>
+    <managed-bean-scope id="__7">session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name id="__10">loginBean</managed-bean-name>
+    <managed-bean-class id="__11">vvitsp.view.beans.LoginBean</managed-bean-class>
+    <managed-bean-scope id="__13">session</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

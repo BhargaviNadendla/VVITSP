@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="adminPortalViewPageDef"
+                Package="admin">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="studentProfileCrudTF1"
+              taskFlowId="/WEB-INF/studentProfileCrudTF.xml#studentProfileCrudTF"
+              activation="immediate" Refresh="ifNeeded"
+              active="#{pageFlowScope.tabClicked=='STUDENT_PROFILE_CRUD'}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="adminUsersTF1"
+              taskFlowId="/WEB-INF/adminUsersTF.xml#adminUsersTF"
+              activation="conditional" Refresh="ifNeeded"
+              active="#{pageFlowScope.tabClicked=='USER_PROFILE_CRUD'}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="adminNotificationsCrudTF1"
+              taskFlowId="/WEB-INF/adminNotificationsCrudTF.xml#adminNotificationsCrudTF"
+              activation="conditional"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              active="#{pageFlowScope.tabClicked=='NOTIFICATION_PROFILE_CRUD'}"/>
+    <taskFlow id="adminQueriesCrudTF1"
+              taskFlowId="/WEB-INF/adminQueriesCrudTF.xml#adminQueriesCrudTF"
+              activation="conditional"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              active="#{pageFlowScope.tabClicked=='QUERY_PROFILE_CRUD'}"/>
+    <taskFlow id="adminSubjectCrudTF1"
+              taskFlowId="/WEB-INF/adminSubjectCrudTF.xml#adminSubjectCrudTF"
+              activation="conditional"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              active="#{pageFlowScope.tabClicked=='SUBJECT_PROFILE_CRUD'}"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

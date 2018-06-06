@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Register New User">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl3" halign="center" layout="vertical">
+          <af:panelGroupLayout id="pgl6" inlineStyle="width:50%;"
+                               layout="vertical">
+            <af:panelGroupLayout id="pgl5" halign="left" layout="vertical" styleClass="AFStretchWidth">
+              <af:outputText id="ot1" escape="false" value="#{loginBean.errors}"
+                             rendered="#{loginBean.registerationFailed}"/>
+              <af:spacer id="s9" rendered="#{loginBean.registerationFailed}"
+                         height="10px"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl4" layout="vertical" styleClass="AFStretchWidth">
+              <af:panelFormLayout id="pfl1" styleClass="AFStretchWidth">
+                <af:panelLabelAndMessage id="plam1" for="soc1"
+                                         label="* User Type">
+                  <af:selectOneChoice id="soc1" label="#{null}"
+                                      autoSubmit="true"
+                                      value="#{loginBean.userBean.userType}"
+                                      immediate="true"
+                                      requiredMessageDetail="Select at least one User Type"
+                                      simple="true">
+                    <f:selectItems id="si1"
+                                   value="#{loginBean.seedData.userTypes}"/>
+                  </af:selectOneChoice>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s5" height="10px"/>
+                <af:panelLabelAndMessage id="plam11" for="soc1"
+                                         label="* Relationship"
+                                         visible="#{loginBean.userBean.userType eq 502}"
+                                         partialTriggers="soc1">
+                  <af:selectOneChoice id="soc2" label="#{null}"
+                                      autoSubmit="true"
+                                      value="#{loginBean.userBean.parentType}"
+                                      requiredMessageDetail="Select at least one Relationship"
+                                      simple="true">
+                    <f:selectItems id="si2"
+                                   value="#{loginBean.seedData.parentTypes}"/>
+                  </af:selectOneChoice>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s10" height="10px"
+                           visible="#{loginBean.userBean.userType eq 502}"
+                           partialTriggers="soc1"/>
+                <af:panelLabelAndMessage id="plam6" label="* Roll No" for="it6"
+                                         visible="#{loginBean.userBean.userType eq 501 or loginBean.userBean.userType eq 502}"
+                                         partialTriggers="soc1">
+                  <af:inputText id="it6" value="#{loginBean.userBean.rollNo}"
+                                simple="true"/>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s1" height="10px" partialTriggers="soc1"
+                           visible="#{loginBean.userBean.userType eq 501 or loginBean.userBean.userType eq 502}"/>
+                <af:panelLabelAndMessage id="plam2" label="* First Name"
+                                         for="it1">
+                  <af:inputText id="it1" value="#{loginBean.userBean.firstName}"
+                                requiredMessageDetail="First Name is mandatory for Registration"
+                                simple="true"/>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s2" height="10px"/>
+                <af:panelLabelAndMessage id="plam3" label="* Last Name"
+                                         for="it2">
+                  <af:inputText id="it2" value="#{loginBean.userBean.lastName}"
+                                simple="true"
+                                requiredMessageDetail="Last Name is mandatory for Registration"/>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s3" height="10px"/>
+                <af:panelLabelAndMessage id="plam5" for="soc1" label="* Gender">
+                  <af:selectOneChoice id="soc3" label="#{null}"
+                                      autoSubmit="true"
+                                      value="#{loginBean.userBean.gender}"
+                                      simple="true">
+                    <f:selectItems id="si3"
+                                   value="#{loginBean.seedData.genderTypes}"/>
+                  </af:selectOneChoice>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s8" height="10px"/>
+                <af:panelLabelAndMessage id="plam4" label="* Email" for="it3">
+                  <af:inputText id="it3" value="#{loginBean.userBean.email}"
+                                requiredMessageDetail="Email is mandatory for Registration"
+                                simple="true"/>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s4" height="10px"/>
+                <!--<af:panelLabelAndMessage id="plam8" label="Phone" for="it7">
+              <af:inputText id="it7" value="#{loginBean.userBean.phone}"
+                            simple="true"/>
+            </af:panelLabelAndMessage>-->
+                <!--<af:spacer id="s8" height="10px"/>-->
+                <!--<af:panelLabelAndMessage id="plam9" label="Mobile" for="it4">
+              <af:inputText id="it4" value="#{loginBean.userBean.mobile}"
+                            simple="true"/>
+            </af:panelLabelAndMessage>-->
+                <!--<af:spacer id="s9" height="10px"/>-->
+                <af:panelLabelAndMessage id="plam10" label="* Password"
+                                         for="it8">
+                  <af:inputText secret="true" id="it8"
+                                value="#{loginBean.userBean.password}"
+                                requiredMessageDetail="Password is mandatory for Registration"
+                                simple="true"/>
+                </af:panelLabelAndMessage>
+                <af:spacer id="s6" height="10px"/>
+                <af:panelLabelAndMessage id="plam7" label="* Confirm Password"
+                                         for="it5">
+                  <af:inputText id="it5"
+                                value="#{loginBean.userBean.confirmPassword}"
+                                requiredMessageDetail="Confirm Password is mandatory for Registration"
+                                simple="true" secret="true"/>
+                </af:panelLabelAndMessage>
+              </af:panelFormLayout>
+              <af:spacer id="s11" height="10px"/>
+              <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                   rendered="#{!loginBean.txnSuccess}">
+                <af:commandButton id="cb1" text="Register"
+                                  action="#{loginBean.createUerAction}"/>
+                <af:spacer id="s7" width="10px"/>
+                <af:commandButton id="cb2" text="Cancel" immediate="true"
+                                  action="loginPage"/>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl2" layout="horizontal"
+                                   rendered="#{loginBean.txnSuccess}">
+                <af:commandLink id="cl1" text="Login to access the system"
+                                action="#{loginBean.loginPageAction}"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

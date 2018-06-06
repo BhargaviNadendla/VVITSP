@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="adminUsersTF">
+    <default-activity id="__1">usersListView</default-activity>
+    <managed-bean id="__12">
+      <managed-bean-name id="__15">userCrudBean</managed-bean-name>
+      <managed-bean-class id="__14">vvitsp.view.beans.UserCrudBean</managed-bean-class>
+      <managed-bean-scope id="__13">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="usersListView">
+      <page>/admin/usersListView.jsff</page>
+    </view>
+    <view id="createOrEditUserView">
+      <page>/admin/createOrEditUserView.jsff</page>
+    </view>
+    <task-flow-call id="deleteUserTF">
+      <task-flow-reference>
+        <document>/WEB-INF/deleteUserTF.xml</document>
+        <id>deleteUserTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__2">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <method-call id="fetchUserDetailsForEdit">
+      <method>#{pageFlowScope.userCrudBean.fetchUserDetailsForEdit}</method>
+      <outcome id="__37">
+        <fixed-outcome>fetchUserDetailsForEdit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="refreshUserList">
+      <method>#{pageFlowScope.userCrudBean.refreshUserList}</method>
+      <outcome id="__48">
+        <fixed-outcome>refreshUserList</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="changePasswordView">
+      <page>/admin/changePasswordView.jsff</page>
+    </view>
+    <method-call id="fetchUserDetailsForChangePassword">
+      <method>#{pageFlowScope.userCrudBean.fetchUserDetailsForChangePassword}</method>
+      <outcome id="__36">
+        <fixed-outcome>fetchUserDetailsForChangePassword</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">usersListView</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome id="__7">editUser</from-outcome>
+        <to-activity-id id="__5">fetchUserDetailsForEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__25">
+        <from-outcome id="__27">createUser</from-outcome>
+        <to-activity-id id="__26">createOrEditUserView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__34">
+        <from-outcome id="__35">deleteUser</from-outcome>
+        <to-activity-id id="__33">deleteUserTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">changePassword</from-outcome>
+        <to-activity-id id="__9">fetchUserDetailsForChangePassword</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id id="__21">fetchUserDetailsForEdit</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome id="__24">fetchUserDetailsForEdit</from-outcome>
+        <to-activity-id id="__23">createOrEditUserView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__38">
+      <from-activity-id id="__39">createOrEditUserView</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome id="__42">refresh</from-outcome>
+        <to-activity-id id="__40">refreshUserList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id id="__44">refreshUserList</from-activity-id>
+      <control-flow-case id="__46">
+        <from-outcome id="__47">refreshUserList</from-outcome>
+        <to-activity-id id="__45">usersListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id id="__16">changePasswordView</from-activity-id>
+      <control-flow-case id="__17">
+        <from-outcome id="__19">refresh</from-outcome>
+        <to-activity-id id="__18">refreshUserList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__28">
+      <from-activity-id id="__29">fetchUserDetailsForChangePassword</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome id="__32">fetchUserDetailsForChangePassword</from-outcome>
+        <to-activity-id id="__30">changePasswordView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

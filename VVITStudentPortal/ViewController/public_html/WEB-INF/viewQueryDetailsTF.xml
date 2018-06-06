@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="viewQueryDetailsTF">
+    <default-activity id="__5">fetchQueryDetails</default-activity>
+    <managed-bean id="__2">
+      <managed-bean-name id="__4">viewQueryDetailsBean</managed-bean-name>
+      <managed-bean-class id="__3">vvitsp.view.beans.ViewQueryDetailsBean</managed-bean-class>
+      <managed-bean-scope id="__1">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="fetchQueryDetails">
+      <method>#{pageFlowScope.viewQueryDetailsBean.fetchQueryDetails}</method>
+      <outcome id="__11">
+        <fixed-outcome>fetchQueryDetails</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="viewQueryView">
+      <page>/admin/viewQueryView.jspx</page>
+    </view>
+    <task-flow-return id="backToListView">
+      <outcome id="__17">
+        <name>backToListView</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">fetchQueryDetails</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">fetchQueryDetails</from-outcome>
+        <to-activity-id id="__8">viewQueryView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id id="__19">viewQueryView</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__22">backToListView</from-outcome>
+        <to-activity-id id="__21">backToListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

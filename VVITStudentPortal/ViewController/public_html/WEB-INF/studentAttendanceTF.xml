@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="studentAttendanceTF">
+    <default-activity id="__2">fetchAttendance</default-activity>
+    <managed-bean id="__11">
+      <managed-bean-name id="__10">attendanceBean</managed-bean-name>
+      <managed-bean-class id="__9">vvitsp.view.beans.AttendanceBean</managed-bean-class>
+      <managed-bean-scope id="__12">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler id="__1"></exception-handler>
+    <view id="attendanceview">
+      <page>/student/attendanceView.jsff</page>
+    </view>
+    <method-call id="fetchAttendance">
+      <method>#{pageFlowScope.attendanceBean.fetchAttendance}</method>
+      <outcome id="__8">
+        <fixed-outcome>fetchAttendance</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">fetchAttendance</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">fetchAttendance</from-outcome>
+        <to-activity-id id="__6">attendanceview</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

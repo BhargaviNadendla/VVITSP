@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:h="http://java.sun.com/jsf/html">
+    <af:group id="g1">
+        <div id="contentDiv"
+             style="z-index: 21; box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1); position: absolute;height: 35px !important; width: 100%;background: #f0806c;">
+            <div style="overflow: hidden;padding-left: 0; padding-right: 0; width: 1010px; margin: 0px auto 0px auto;  height: 35px !important;margin: 0 auto; height: auto; left: 0; right: 0;  "
+                 id="headerOuterDiv">
+                <div>
+                    <div style="float:right;overflow:hidden; padding:10px;">
+                        <!--<af:commandLink id="c11" 
+                                        text="Log Out" immediate="true"/>-->
+                        <af:outputText value="Welcome" id="ot1" visible="#{not empty sessionScope.loginBean.user}"/>
+                         
+                        <af:spacer width="5px" id="s1"/>
+                         
+                        <af:outputText value="#{sessionScope.loginBean.user.vvitspStudent ? sessionScope.loginBean.user.student.firstName : sessionScope.loginBean.user.staff.firstName}"
+                                       id="ot2"
+                                       inlineStyle="font-weight:bold;"/>
+                         
+                        <af:spacer width="5px" id="s2"/>
+                         
+                        <af:outputText value="#{sessionScope.loginBean.user.vvitspStudent ? sessionScope.loginBean.user.student.lastName : sessionScope.loginBean.user.staff.lastName}"
+                                       id="ot3"
+                                       inlineStyle="font-weight:bold;"/>
+                    </div>
+                    <div style="float:left;overflow:hidden; padding:10px;"></div>
+                </div>
+            </div>
+        </div>
+    </af:group>
+</jsp:root>

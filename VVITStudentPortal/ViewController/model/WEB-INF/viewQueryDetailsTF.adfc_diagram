@@ -1,0 +1,70 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">fetchQueryDetails</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>fetchQueryDetails&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">207.94824</property>
+      <property
+         name="x">294.0</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">viewQueryView</property>
+      <property
+         name="page">/admin/viewQueryView.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>viewQueryView&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">231.39062</property>
+      <property
+         name="x">534.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">fetchQueryDetails</property>
+      <property
+         name="sdm:polyPoints">R50,335.0,207.59766,493.0,231.04004,L50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn7">
+      <property
+         name="activityId">backToListView</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>backToListView&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  backToListView&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">209.95312</property>
+      <property
+         name="x">812.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View3"
+      to="TaskFlowReturn7">
+      <property
+         name="fromOutcome">backToListView</property>
+      <property
+         name="sdm:polyPoints">R50,575.0,231.04004,771.0,209.95312,L50</property>
+   </ControlFlowCase>
+</SDM>

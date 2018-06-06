@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.64.93" id="DataBindings" SeparateXMLFiles="false"
+             Package="vvitsp.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/student/studentPortalView.jspx"
+          usageId="vvitsp_view_studentPortalViewPageDef"/>
+    <page path="/student/attendanceView.jsff"
+          usageId="vvitsp_view_attendanceviewPageDef"/>
+    <page path="/admin/adminPortalView.jspx"
+          usageId="vvitsp_view_adminPortalViewPageDef"/>
+    <page path="/admin/studentsListView.jsff"
+          usageId="vvitsp_view_studentsListViewPageDef"/>
+    <page path="/admin/usersListView.jsff"
+          usageId="vvitsp_view_usersListViewPageDef"/>
+    <page path="/admin/notificationsListView.jsff"
+          usageId="vvitsp_view_notificationsListViewPageDef"/>
+    <page path="/admin/queriesListView.jsff"
+          usageId="vvitsp_view_queriesListViewPageDef1"/>
+    <page path="/admin/subjectListView.jsff"
+          usageId="vvitsp_view_subjectListViewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="vvitsp_view_studentPortalViewPageDef"
+          path="vvitsp.view.pageDefs.studentPortalViewPageDef"/>
+    <page id="vvitsp_view_attendanceviewPageDef"
+          path="vvitsp.view.pageDefs.attendanceviewPageDef"/>
+    <page id="vvitsp_view_adminPortalViewPageDef"
+          path="admin.adminPortalViewPageDef"/>
+    <page id="vvitsp_view_studentsListViewPageDef"
+          path="admin.studentsListViewPageDef"/>
+    <page id="vvitsp_view_usersListViewPageDef"
+          path="vvitsp.view.pageDefs.usersListViewPageDef"/>
+    <page id="vvitsp_view_notificationsListViewPageDef"
+          path="admin.notificationsListViewPageDef"/>
+    <page id="vvitsp_view_queriesListViewPageDef"
+          path="admin.queriesListViewPageDef"/>
+    <page id="vvitsp_view_queriesListViewPageDef1"
+          path="admin.queriesListViewPageDef1"/>
+    <page id="vvitsp_view_subjectListViewPageDef"
+          path="admin.subjectListViewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="CommonAMDataControl"
+                     Package="vvitsp.model.bc.appModule"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="CommonAMLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

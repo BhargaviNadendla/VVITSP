@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Student Detials" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.findStudentDetailsVCQuery.queryDescriptor}"
+                model="#{bindings.findStudentDetailsVCQuery.queryModel}"
+                queryListener="#{bindings.findStudentDetailsVCQuery.processQuery}"
+                queryOperationListener="#{bindings.findStudentDetailsVCQuery.processQueryOperation}"
+                resultComponentId="::resId1" saveQueryMode="hidden"
+                modeChangeVisible="false" type="flow" maxColumns="2" rows="3"
+                inlineStyle="margin-left:-10px !important; cursor: default; white-space: nowrap; border: 1px solid #d6dfe6; margin-left: 0px; line-height: 20px; margin-top: 5px; width: 50%; border-top: 1px solid #D6DFE6;"/>
+    </af:panelHeader>
+    <af:spacer height="10px" id="s2"/>
+    <af:commandButton text="Create Student" id="cb1" action="createStudent"/>
+    <af:spacer height="10px" id="s1"/>
+    <af:table value="#{bindings.StudentDetailsROVO1.collectionModel}" var="row"
+              rows="#{bindings.StudentDetailsROVO1.rangeSize}"
+              emptyText="#{bindings.StudentDetailsROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.StudentDetailsROVO1.rangeSize}"
+              rowBandingInterval="0"
+              selectedRowKeys="#{bindings.StudentDetailsROVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.StudentDetailsROVO1.collectionModel.makeCurrent}"
+              rowSelection="single" id="resId1" styleClass="AFStretchWidth">
+      <af:column id="c1" width="90" minimumWidth="90">
+        <f:facet name="header">
+          <af:outputText value="Actions"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot1"/>
+        </f:facet>
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+          <af:commandLink text="Edit" id="cl2" action="editStudent"
+                          partialSubmit="true">
+            <af:setActionListener from="#{row.StudentId}"
+                                  to="#{pageFlowScope.studentId}"/>
+          </af:commandLink>
+          <af:commandLink text="Add Marks" id="cl4" action="addMarks"
+                          partialSubmit="true"/>
+          <af:commandLink text="Approve Request" id="cl1"
+                          rendered="#{row.UpdateRequest}" partialSubmit="true"
+                          action="approveRequest">
+            <af:setActionListener from="#{row.StudentId}"
+                                  to="#{pageFlowScope.studentId}"/>
+          </af:commandLink>
+          <af:commandLink text="Delete" id="cl3" action="deleteStudent"
+                          partialSubmit="true" useWindow="true"
+                          windowHeight="90" windowWidth="300"
+                          returnListener="#{pageFlowScope.studentProfileCrudBean.refreshStudentListView}">
+            <af:setActionListener from="#{row.StudentId}"
+                                  to="#{pageFlowScope.studentId}"/>
+          </af:commandLink>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.RollNo.name}"
+                 sortable="false" width="70" id="resId1c1" minimumWidth="70">
+        <f:facet name="header">
+          <af:outputText value="Roll No"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot4"/>
+        </f:facet>
+        <af:outputText value="#{row.RollNo}" id="ot8"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.FirstName.name}"
+                 sortable="false" id="resId1c2" width="100" minimumWidth="100">
+        <f:facet name="header">
+          <af:outputText value="First Name"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot9"/>
+        </f:facet>
+        <af:outputText value="#{row.FirstName}" id="ot5"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.LastName.name}"
+                 sortable="false" id="resId1c3" width="100" minimumWidth="100">
+        <f:facet name="header">
+          <af:outputText value="Last Name"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot11"/>
+        </f:facet>
+        <af:outputText value="#{row.LastName}" id="ot6"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.Phone.name}"
+                 sortable="false" width="70" minimumWidth="70" id="resId1c4">
+        <f:facet name="header">
+          <af:outputText value="Phone"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot12"/>
+        </f:facet>
+        <af:outputText value="#{row.Phone}" id="ot7"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.Mobile.name}"
+                 sortable="false" width="70" minimumWidth="70" id="resId1c5">
+        <f:facet name="header">
+          <af:outputText value="Mobile"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot13"/>
+        </f:facet>
+        <af:outputText value="#{row.Mobile}" id="ot2"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.Email.name}"
+                 sortable="false" width="160" minimumWidth="160" id="resId1c7">
+        <f:facet name="header">
+          <af:outputText value="Email"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot14"/>
+        </f:facet>
+        <af:outputText value="#{row.Email}" id="ot10"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.BranchId.name}"
+                 sortable="false" id="resId1c8" width="50" minimumWidth="50">
+        <f:facet name="header">
+          <af:outputText value="Branch"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot15"/>
+        </f:facet>
+        <af:selectOneChoice value="#{row.bindings.BranchId.inputValue}"
+                            label="#{row.bindings.BranchId.label}"
+                            required="#{bindings.StudentDetailsROVO1.hints.BranchId.mandatory}"
+                            shortDesc="#{bindings.StudentDetailsROVO1.hints.BranchId.tooltip}"
+                            id="soc1" readOnly="true">
+          <f:selectItems value="#{row.bindings.BranchId.items}" id="si1"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.SectionId.name}"
+                 sortable="false" id="resId1c9" width="50" minimumWidth="50">
+        <f:facet name="header">
+          <af:outputText value="Section"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot16"/>
+        </f:facet>
+        <af:selectOneChoice value="#{row.bindings.SectionId.inputValue}"
+                            label="#{row.bindings.SectionId.label}"
+                            required="#{bindings.StudentDetailsROVO1.hints.SectionId.mandatory}"
+                            shortDesc="#{bindings.StudentDetailsROVO1.hints.SectionId.tooltip}"
+                            id="soc2" readOnly="true">
+          <f:selectItems value="#{row.bindings.SectionId.items}" id="si2"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.SemesterId.name}"
+                 sortable="false" id="resId1c11" width="60" minimumWidth="60">
+        <f:facet name="header">
+          <af:outputText value="Semester"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot18"/>
+        </f:facet>
+        <af:selectOneChoice value="#{row.bindings.SemesterId.inputValue}"
+                            label="#{row.bindings.SemesterId.label}"
+                            required="#{bindings.StudentDetailsROVO1.hints.SemesterId.mandatory}"
+                            shortDesc="#{bindings.StudentDetailsROVO1.hints.SemesterId.tooltip}"
+                            id="soc3" readOnly="true">
+          <f:selectItems value="#{row.bindings.SemesterId.items}" id="si3"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column sortProperty="#{bindings.StudentDetailsROVO1.hints.LastUpdateDate.name}"
+                 sortable="false" id="resId1c6" width="120" minimumWidth="120">
+        <f:facet name="header">
+          <af:outputText value="Last Modified Date"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot17"/>
+        </f:facet>
+        <af:outputText value="#{row.LastUpdateDate}" id="ot3">
+          <af:convertDateTime pattern="#{bindings.StudentDetailsROVO1.hints.LastUpdateDate.format}"/>
+        </af:outputText>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

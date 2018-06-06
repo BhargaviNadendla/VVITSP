@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="Student Portal">
+      <af:form id="f1">
+        <af:pageTemplate viewId="/vvitspPageTemplate.jspx" id="pt1">
+          <f:facet name="content">
+            <af:panelGroupLayout id="pgl3" layout="scroll"
+                                 inlineStyle="height:700px; background: #dde1e7 none repeat scroll 0 0; border-left: 1px solid #bdc4cf; border-right: 1px solid #bdc4cf;"
+                                 styleClass="AFStretchWidth">
+              <af:panelTabbed id="pt2" styleClass="AFStretchWidth"
+                              inlineStyle="height: 700px; text-align:left;">
+                <af:showDetailItem text="Home" id="sdi1" disclosed="true"
+                                   stretchChildren="first">
+                  <af:panelGroupLayout layout="scroll" id="pgl1">
+                    <af:region value="#{bindings.studentNotificationsTF1.regionModel}"
+                               id="r2"/>
+                  </af:panelGroupLayout>
+                  <af:setPropertyListener from="HOME_DETAILS"
+                                          to="#{pageFlowScope.tabClicked}"
+                                          type="disclosure"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="Profile" id="sdi2"
+                                   stretchChildren="first">
+                  <af:region value="#{bindings.studentProfileTF1.regionModel}"
+                             id="r1" />
+                  <af:setPropertyListener from="PROFILE_DETAILS"
+                                          to="#{pageFlowScope.tabClicked}"
+                                          type="disclosure"/>
+                </af:showDetailItem>
+                <af:showDetailItem text="Attendance" id="sdi3"
+                                   stretchChildren="first">
+                  <af:setPropertyListener from="ATTENDANCE_DETAILS"
+                                          to="#{pageFlowScope.tabClicked}"
+                                          type="disclosure"/>
+                  <af:region value="#{bindings.studentAttendanceTF1.regionModel}"
+                             id="r4"/>
+                </af:showDetailItem>
+                <!--<af:showDetailItem text="Marks" id="sdi4"
+                                   stretchChildren="first">
+                  <af:setPropertyListener from="MARKS_DETAILS"
+                                          to="#{pageFlowScope.tabClicked}"
+                                          type="disclosure"/>
+                </af:showDetailItem>-->
+                <!--<af:showDetailItem text="Curriculum" id="sdi5"
+                                   stretchChildren="first">
+                  <af:setPropertyListener from="CURRICULAM_DETAILS"
+                                          to="#{pageFlowScope.tabClicked}"
+                                          type="disclosure"/>
+                </af:showDetailItem>-->
+                <!--<af:showDetailItem text="Placements" id="sdi7"
+                                   stretchChildren="first">
+                  <af:setPropertyListener from="PLACEMENT_DETAILS"
+                                          to="#{pageFlowScope.tabClicked}"
+                                          type="disclosure"/>
+                </af:showDetailItem>-->
+                <af:showDetailItem text="Queires" id="sdi6"
+                                   stretchChildren="first">
+                  <af:setPropertyListener from="QUERIES_DETAILS"
+                                          to="#{pageFlowScope.tabClicked}"
+                                          type="disclosure"/>
+                  <af:panelGroupLayout layout="scroll" id="pgl2">
+                    <af:region value="#{bindings.studentQueriesTF1.regionModel}"
+                               id="r3"/>
+                  </af:panelGroupLayout>
+                </af:showDetailItem>
+              </af:panelTabbed>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

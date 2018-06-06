@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="Query Details" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.findByRollNoVCQuery.queryDescriptor}"
+                model="#{bindings.findByRollNoVCQuery.queryModel}"
+                queryListener="#{bindings.findByRollNoVCQuery.processQuery}"
+                queryOperationListener="#{bindings.findByRollNoVCQuery.processQueryOperation}"
+                resultComponentId="::queryListTable" saveQueryMode="hidden"
+                modeChangeVisible="false" type="flow" maxColumns="3" rows="1"
+                inlineStyle="margin-left:-10px !important; cursor: default; white-space: nowrap; border: 1px solid #d6dfe6; margin-left: 0px; line-height: 20px; margin-top: 5px; width: 50%; border-top: 1px solid #D6DFE6;"/>
+    </af:panelHeader>
+    <af:spacer height="10px" id="s1"/>
+    <af:table value="#{bindings.QueryDetailsROVO1.collectionModel}" var="row"
+              rows="#{bindings.QueryDetailsROVO1.rangeSize}"
+              emptyText="#{bindings.QueryDetailsROVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.QueryDetailsROVO1.rangeSize}"
+              rowBandingInterval="0" styleClass="AFStretchWidth"
+              selectedRowKeys="#{bindings.QueryDetailsROVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.QueryDetailsROVO1.collectionModel.makeCurrent}"
+              rowSelection="single" id="queryListTable">
+      <af:column id="c1" width="45" minimumWidth="45">
+        <f:facet name="header">
+          <af:outputText value="Actions"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot1"/>
+        </f:facet>
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+          <af:commandLink text="Resolve" id="cl2" action="resolveQuery"
+                          rendered="#{empty row.Answer}" useWindow="true"
+                          windowHeight="210" windowWidth="420"
+                          returnListener="#{pageFlowScope.adminQueriesBean.refreshQueryListView}"
+                          partialSubmit="true"/>
+          <af:commandLink text="View" id="cl3" action="viewQuery"
+                          partialSubmit="true" useWindow="true"
+                          rendered="#{not empty row.Answer}" windowHeight="130"
+                          windowWidth="300"
+                          returnListener="#{pageFlowScope.adminQueriesBean.refreshQueryListView}"/>
+        </af:panelGroupLayout>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.Question.name}"
+                 sortable="false" id="resId1c1" width="195" minimumWidth="195">
+        <f:facet name="header">
+          <af:outputText value="Query"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot9"/>
+        </f:facet>
+        <af:outputText value="#{row.Question}" id="ot10"
+                       inlineStyle="white-space: normal;"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.Answer.name}"
+                 sortable="false" width="195" minimumWidth="195" id="resId1c2">
+        <f:facet name="header">
+          <af:outputText value="Answer"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot13"/>
+        </f:facet>
+        <af:outputText value="#{row.Answer}" id="ot8"
+                       inlineStyle="white-space: normal;"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.RollNo.name}"
+                 sortable="false" id="resId1c3" width="70" minimumWidth="70">
+        <f:facet name="header">
+          <af:outputText value="Roll No"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot14"/>
+        </f:facet>
+        <af:outputText value="#{row.RollNo}" id="ot5"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.FirstName.name}"
+                 sortable="false" id="resId1c4" width="80" minimumWidth="80">
+        <f:facet name="header">
+          <af:outputText value="First name"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot15"/>
+        </f:facet>
+        <af:outputText value="#{row.FirstName}" id="ot11"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.LastName.name}"
+                 sortable="false" id="resId1c5" width="80" minimumWidth="80">
+        <f:facet name="header">
+          <af:outputText value="Last Name"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot16"/>
+        </f:facet>
+        <af:outputText value="#{row.LastName}" id="ot12"/>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.BranchId.name}"
+                 sortable="false" id="resId1c6" width="50" minimumWidth="50">
+        <f:facet name="header">
+          <af:outputText value="Branch"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot17"/>
+        </f:facet>
+        <af:selectOneChoice value="#{row.bindings.BranchId.inputValue}"
+                            label="#{row.bindings.BranchId.label}"
+                            readOnly="true"
+                            required="#{bindings.QueryDetailsROVO1.hints.BranchId.mandatory}"
+                            shortDesc="#{bindings.QueryDetailsROVO1.hints.BranchId.tooltip}"
+                            id="soc3">
+          <f:selectItems value="#{row.bindings.BranchId.items}" id="si3"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.SectionId.name}"
+                 sortable="false" id="resId1c7" width="50" minimumWidth="50">
+        <f:facet name="header">
+          <af:outputText value="Section"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot18"/>
+        </f:facet>
+        <af:selectOneChoice value="#{row.bindings.SectionId.inputValue}"
+                            label="#{row.bindings.SectionId.label}"
+                            readOnly="true"
+                            required="#{bindings.QueryDetailsROVO1.hints.SectionId.mandatory}"
+                            shortDesc="#{bindings.QueryDetailsROVO1.hints.SectionId.tooltip}"
+                            id="soc1">
+          <f:selectItems value="#{row.bindings.SectionId.items}" id="si1"/>
+        </af:selectOneChoice>
+      </af:column>
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.SemesterId.name}"
+                 sortable="false" id="resId1c8" width="60" minimumWidth="60">
+        <f:facet name="header">
+          <af:outputText value="Semester"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot19"/>
+        </f:facet>
+        <af:selectOneChoice value="#{row.bindings.SemesterId.inputValue}"
+                            label="#{row.bindings.SemesterId.label}"
+                            readOnly="true"
+                            required="#{bindings.QueryDetailsROVO1.hints.SemesterId.mandatory}"
+                            shortDesc="#{bindings.QueryDetailsROVO1.hints.SemesterId.tooltip}"
+                            id="soc2">
+          <f:selectItems value="#{row.bindings.SemesterId.items}" id="si2"/>
+        </af:selectOneChoice>
+      </af:column>
+      <!--<af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.Phone.name}"
+                 sortable="false" id="resId1c9" width="70" minimumWidth="70">
+        <f:facet name="header">
+          <af:outputText value="Phone"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot20"/>
+        </f:facet>
+        <af:outputText value="#{row.Phone}" id="ot2"/>
+      </af:column>-->
+      <!--<af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.Mobile.name}"
+                 sortable="false" id="resId1c10" width="70" minimumWidth="70">
+        <f:facet name="header">
+          <af:outputText value="Mobile"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot21"/>
+        </f:facet>
+        <af:outputText value="#{row.Mobile}" id="ot6"/>
+      </af:column>-->
+      <af:column sortProperty="#{bindings.QueryDetailsROVO1.hints.LastUpdateDate.name}"
+                 sortable="false" id="resId1c11" width="120" minimumWidth="120">
+        <f:facet name="header">
+          <af:outputText value="Last Modified Date"
+                         inlineStyle="font-size:12px; font-weight:bold;"
+                         id="ot22"/>
+        </f:facet>
+        <af:outputText value="#{row.LastUpdateDate}" id="ot23">
+          <af:convertDateTime pattern="#{bindings.QueryDetailsROVO1.hints.LastUpdateDate.format}"/>
+        </af:outputText>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

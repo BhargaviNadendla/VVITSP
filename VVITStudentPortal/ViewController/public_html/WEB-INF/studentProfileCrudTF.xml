@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="studentProfileCrudTF">
+    <default-activity id="__2">initStudentProfile</default-activity>
+    <managed-bean id="__22">
+      <managed-bean-name id="__21">studentProfileCrudBean</managed-bean-name>
+      <managed-bean-class id="__24">vvitsp.view.beans.StudentProfileCrudBean</managed-bean-class>
+      <managed-bean-scope id="__23">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="studentsListView">
+      <page>/admin/studentsListView.jsff</page>
+    </view>
+    <view id="createStudentView">
+      <page>/admin/createStudentView.jsff</page>
+    </view>
+    <method-call id="refreshStudentList">
+      <method>#{pageFlowScope.studentProfileCrudBean.refreshStudentList}</method>
+      <outcome id="__29">
+        <fixed-outcome>refreshStudentList</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="fetchRequiredDataforStudentCrud">
+      <method>#{pageFlowScope.studentProfileCrudBean.getRequiredDataForStudentCrud}</method>
+      <outcome id="__39">
+        <fixed-outcome>fetchRequiredDataForStudentCrud</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="fetchStudentDetailsForEdit">
+      <method>#{pageFlowScope.studentProfileCrudBean.fetchStudentDetailsForEdit}</method>
+      <outcome id="__30">
+        <fixed-outcome>fetchStudentDetailsForEdit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="deleteStudentTF">
+      <task-flow-reference>
+        <document>/WEB-INF/deleteStudentTF.xml</document>
+        <id>deleteStudentTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__50">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <view id="approveStudentUpdateRequestView">
+      <page>/admin/approveStudentUpdateRequestView.jsff</page>
+    </view>
+    <method-call id="fetchStudentHistoryDetials">
+      <method>#{pageFlowScope.studentProfileCrudBean.fetchStudentHistoryDetails}</method>
+      <outcome id="__53">
+        <fixed-outcome>fetchStudentHistoryDetails</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="initStudentProfile">
+      <method>#{pageFlowScope.studentProfileCrudBean.initStudentProfile}</method>
+      <outcome id="__60">
+        <fixed-outcome>initStudentProfile</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id id="__3">studentsListView</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">createStudent</from-outcome>
+        <to-activity-id id="__5">fetchRequiredDataforStudentCrud</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome id="__9">editStudent</from-outcome>
+        <to-activity-id id="__8">fetchStudentDetailsForEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__47">
+        <from-outcome id="__49">deleteStudent</from-outcome>
+        <to-activity-id id="__48">deleteStudentTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__32">
+        <from-outcome id="__33">approveRequest</from-outcome>
+        <to-activity-id id="__31">fetchStudentHistoryDetials</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id id="__12">createStudentView</from-activity-id>
+      <control-flow-case id="__13">
+        <from-outcome id="__15">refresh</from-outcome>
+        <to-activity-id id="__14">refreshStudentList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id id="__17">refreshStudentList</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__20">refreshStudentList</from-outcome>
+        <to-activity-id id="__19">studentsListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id id="__35">fetchRequiredDataforStudentCrud</from-activity-id>
+      <control-flow-case id="__36">
+        <from-outcome id="__38">fetchRequiredDataForStudentCrud</from-outcome>
+        <to-activity-id id="__37">createStudentView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id id="__25">fetchStudentDetailsForEdit</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome id="__28">fetchStudentDetailsForEdit</from-outcome>
+        <to-activity-id id="__26">fetchRequiredDataforStudentCrud</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__44">
+      <from-activity-id id="__45">fetchStudentHistoryDetials</from-activity-id>
+      <control-flow-case id="__51">
+        <from-outcome id="__52">fetchStudentHistoryDetails</from-outcome>
+        <to-activity-id id="__46">approveStudentUpdateRequestView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__54">
+      <from-activity-id id="__55">approveStudentUpdateRequestView</from-activity-id>
+      <control-flow-case id="__56">
+        <from-outcome id="__58">refresh</from-outcome>
+        <to-activity-id id="__57">refreshStudentList</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__40">
+      <from-activity-id id="__41">initStudentProfile</from-activity-id>
+      <control-flow-case id="__42">
+        <from-outcome id="__59">initStudentProfile</from-outcome>
+        <to-activity-id id="__43">studentsListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

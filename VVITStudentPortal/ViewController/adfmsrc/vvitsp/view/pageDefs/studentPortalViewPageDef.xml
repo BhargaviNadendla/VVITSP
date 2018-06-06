@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="studentPortalViewPageDef"
+                Package="vvitsp.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="studentProfileTF1"
+              taskFlowId="/WEB-INF/studentProfileTF.xml#studentProfileTF"
+              activation="conditional" Refresh="ifNeeded"
+              active="#{pageFlowScope.tabClicked=='PROFILE_DETAILS'}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="studentNotificationsTF1"
+              taskFlowId="/WEB-INF/studentNotificationsTF.xml#studentNotificationsTF"
+              activation="immediate" Refresh="ifNeeded"
+              active="#{pageFlowScope.tabClicked=='HOME_DETAILS'}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="studentQueriesTF1"
+              taskFlowId="/WEB-INF/studentQueriesTF.xml#studentQueriesTF"
+              activation="conditional" Refresh="ifNeeded"
+              active="#{pageFlowScope.tabClicked=='QUERIES_DETAILS'}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="studentAttendanceTF1"
+              taskFlowId="/WEB-INF/studentAttendanceTF.xml#studentAttendanceTF"
+              activation="conditional" Refresh="ifNeeded"
+              active="#{pageFlowScope.tabClicked=='ATTENDANCE_DETAILS'}"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="VvitspStudentSemExamFk2Assoc"
+  Version="11.1.1.64.93"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SemesterEO"
+    Cardinality="1"
+    Source="true"
+    Owner="vvitsp.model.bc.SemesterEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SemesterEO"/>
+      <Attr Name="_foreignKey"
+        Value="vvitsp.model.bc.SemesterEO.VvitspSemesterPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.SemesterEO.SemesterId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="StudentSemesterExamEO"
+    Cardinality="-1"
+    Owner="vvitsp.model.bc.StudentSemesterExamEO">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="StudentSemesterExamEO"/>
+      <Attr Name="_foreignKey"
+        Value="vvitsp.model.bc.StudentSemesterExamEO.VvitspStudentSemExamFk2"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="vvitsp.model.bc.StudentSemesterExamEO.SemesterId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

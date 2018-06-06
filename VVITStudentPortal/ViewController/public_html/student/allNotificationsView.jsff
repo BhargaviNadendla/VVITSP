@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelGroupLayout id="pgl2" layout="vertical">
+      <af:spacer id="s1" height="20px"/>
+      <af:forEach items="#{pageFlowScope.notificationBean.notifications}"
+                  var="notification" varStatus="i">
+        <af:panelGroupLayout id="pgl3" layout="vertical"
+                             inlineStyle="border: 1px solid rgb(195, 208, 223); width: 380px; padding: 10px; background-color: rgb(222, 228, 231); font-size: 12px; font-weight: bold;">
+          <af:outputText id="ot1" escape="true"
+                         value="#{notification.details}"/>
+        </af:panelGroupLayout>
+        <af:spacer id="s2" height="20px" rendered="#{!i.last}"/>
+      </af:forEach>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

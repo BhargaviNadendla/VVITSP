@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="deleteStudentTF">
+    <default-activity id="__1">deleteStudentView</default-activity>
+    <managed-bean id="__9">
+      <managed-bean-name id="__10">deleteStudentBean</managed-bean-name>
+      <managed-bean-class id="__11">vvitsp.view.beans.DeleteStudentBean</managed-bean-class>
+      <managed-bean-scope id="__8">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="deleteStudentView">
+      <page>/admin/deleteStudentView.jspx</page>
+    </view>
+    <task-flow-return id="backToStudentListView">
+      <outcome id="__2">
+        <name>backToStudentListView</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">deleteStudentView</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">backToStudentListView</from-outcome>
+        <to-activity-id id="__6">backToStudentListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="studentProfileTF">
+    <default-activity id="__5">fetchStudentProfile</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__4">studentProfileBean</managed-bean-name>
+      <managed-bean-class id="__2">vvitsp.view.beans.StudentProfileBean</managed-bean-class>
+      <managed-bean-scope id="__1">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="fetchStudentProfile">
+      <method>#{pageFlowScope.studentProfileBean.fetchStudentProfile}</method>
+      <outcome id="__11">
+        <fixed-outcome>fetchStudentProfile</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="studentProfileView">
+      <page>/student/studentProfileView.jsff</page>
+    </view>
+    <view id="changePasswordView">
+      <page>/student/changePasswordView.jsff</page>
+    </view>
+    <view id="updateProfileView">
+      <page>/student/updateProfileView.jsff</page>
+    </view>
+    <method-call id="updateStudentHistory">
+      <method>#{pageFlowScope.studentProfileBean.updateStudentHistory}</method>
+      <outcome id="__35">
+        <fixed-outcome>updateStudentHistory</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="resetBean">
+      <method>#{pageFlowScope.studentProfileBean.resetBean}</method>
+      <outcome id="__41">
+        <fixed-outcome>resetBean</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="resetBean1">
+      <method>#{pageFlowScope.studentProfileBean.resetBean}</method>
+      <outcome id="__47">
+        <fixed-outcome>resetBean1</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">fetchStudentProfile</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome id="__10">fetchStudentProfile</from-outcome>
+        <to-activity-id id="__8">studentProfileView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">studentProfileView</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome id="__16">changePassword</from-outcome>
+        <to-activity-id id="__14">resetBean1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__18">
+        <from-outcome id="__19">updateProfile</from-outcome>
+        <to-activity-id id="__17">resetBean</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id id="__21">changePasswordView</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome id="__24">return</from-outcome>
+        <to-activity-id id="__23">studentProfileView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id id="__26">updateProfileView</from-activity-id>
+      <control-flow-case id="__27">
+        <from-outcome id="__29">return</from-outcome>
+        <to-activity-id id="__28">studentProfileView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__30">
+      <from-activity-id id="__31">updateStudentHistory</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome id="__34">updateStudentHistory</from-outcome>
+        <to-activity-id id="__32">updateProfileView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id id="__37">resetBean</from-activity-id>
+      <control-flow-case id="__39">
+        <from-outcome id="__40">resetBean</from-outcome>
+        <to-activity-id id="__38">updateStudentHistory</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__42">
+      <from-activity-id id="__43">resetBean1</from-activity-id>
+      <control-flow-case id="__44">
+        <from-outcome id="__46">resetBean1</from-outcome>
+        <to-activity-id id="__45">changePasswordView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

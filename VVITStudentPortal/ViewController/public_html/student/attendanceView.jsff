@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl3">
+    <af:panelGroupLayout id="pgl1" layout="horizontal"
+                         visible="#{pageFlowScope.attendanceBean.percentage ne 0}">
+      <dvt:barGraph id="barGraph1" shortDesc="Student Attendance Report"
+                    value="#{bindings.StudentFirstYearAttendanceROVO12.graphModel}"
+                    subType="BAR_VERT_CLUST">
+        <dvt:background>
+          <dvt:specialEffects/>
+        </dvt:background>
+        <dvt:graphPlotArea/>
+        <dvt:seriesSet>
+          <dvt:series/>
+        </dvt:seriesSet>
+        <dvt:o1Axis/>
+        <dvt:y1Axis/>
+        <dvt:legendArea automaticPlacement="AP_NEVER"/>
+      </dvt:barGraph>
+      <af:spacer width="10px" id="s1"/>
+      <af:outputText value="Average:" id="ot1"
+                     inlineStyle="font-size:12px; font-weight: bold;"/>
+      <af:spacer width="10px" id="s2"/>
+      <af:outputText value="#{pageFlowScope.attendanceBean.percentage}"
+                     id="ot2">
+        <af:convertNumber maxFractionDigits="2" minFractionDigits="2"/>
+      </af:outputText>
+    </af:panelGroupLayout>
+    <af:panelGroupLayout id="pgl2" layout="horizontal"
+                         inlineStyle="padding:20px;"
+                         visible="#{pageFlowScope.attendanceBean.percentage eq 0}">
+      <af:outputText value="Attendance is not updated yet in the system."
+                     id="ot3" inlineStyle="font-size:12px; font-weight: bold;"></af:outputText>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="adminNotificationsCrudTF">
+    <default-activity id="__1">notificationsListView</default-activity>
+    <managed-bean id="__17">
+      <managed-bean-name id="__19">notificationDetailsBean</managed-bean-name>
+      <managed-bean-class id="__18">vvitsp.view.beans.NotificationDetailsBean</managed-bean-class>
+      <managed-bean-scope id="__16">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="notificationsListView">
+      <page>/admin/notificationsListView.jsff</page>
+    </view>
+    <task-flow-call id="createNotificationTF">
+      <task-flow-reference>
+        <document>/WEB-INF/createNotificationTF.xml</document>
+        <id>createNotificationTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__15">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="editNotificationTF">
+      <task-flow-reference>
+        <document>/WEB-INF/editNotificationTF.xml</document>
+        <id>editNotificationTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__14">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <task-flow-call id="deleteNotificationTF">
+      <task-flow-reference>
+        <document>/WEB-INF/deleteNotificationTF.xml</document>
+        <id>deleteNotificationTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__13">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">notificationsListView</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">createNotification</from-outcome>
+        <to-activity-id id="__5">createNotificationTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome id="__9">editNotification</from-outcome>
+        <to-activity-id id="__7">editNotificationTF</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome id="__12">deleteNotification</from-outcome>
+        <to-activity-id id="__11">deleteNotificationTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

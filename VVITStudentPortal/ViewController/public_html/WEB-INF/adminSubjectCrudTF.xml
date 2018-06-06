@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="adminSubjectCrudTF">
+    <default-activity id="__1">initSubjectDetails</default-activity>
+    <managed-bean id="__5">
+      <managed-bean-name id="__3">adminSubjectBean</managed-bean-name>
+      <managed-bean-class id="__2">vvitsp.view.beans.AdminSubjectBean</managed-bean-class>
+      <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <method-call id="initSubjectDetails">
+      <method>#{pageFlowScope.adminSubjectBean.initSubjectDetails}</method>
+      <outcome id="__11">
+        <fixed-outcome>initSubjectDetails</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="subjectListView">
+      <page>/admin/subjectListView.jsff</page>
+    </view>
+    <method-call id="fetchSubjectDetailsForEdit">
+      <method>#{pageFlowScope.adminSubjectBean.fetchSubjectDetailsForEdit}</method>
+      <outcome id="__35">
+        <fixed-outcome>fetchSubjectDetailsForEdit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="refreshSubjectVO">
+      <method>#{pageFlowScope.adminSubjectBean.refreshSubjectVO}</method>
+      <outcome id="__36">
+        <fixed-outcome>refreshSubjectVO</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-call id="deleteSubjectTF">
+      <task-flow-reference>
+        <document>/WEB-INF/deleteSubjectTF.xml</document>
+        <id>deleteSubjectTF</id>
+      </task-flow-reference>
+      <run-as-dialog>
+        <display-type id="__50">
+          <inline-popup/>
+        </display-type>
+      </run-as-dialog>
+    </task-flow-call>
+    <view id="createOrEditSubjectView">
+      <page>/admin/createOrEditSubjectView.jsff</page>
+    </view>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">initSubjectDetails</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">initSubjectDetails</from-outcome>
+        <to-activity-id id="__9">subjectListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">subjectListView</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome id="__16">editSubject</from-outcome>
+        <to-activity-id id="__15">fetchSubjectDetailsForEdit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome id="__24">createSubject</from-outcome>
+        <to-activity-id id="__22">createOrEditSubjectView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__48">
+        <from-outcome id="__49">deleteSubject</from-outcome>
+        <to-activity-id id="__47">deleteSubjectTF</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">fetchSubjectDetailsForEdit</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome id="__21">fetchSubjectDetailsForEdit</from-outcome>
+        <to-activity-id id="__20">createOrEditSubjectView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id id="__26">refreshSubjectVO</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome id="__29">refreshSubjectVO</from-outcome>
+        <to-activity-id id="__27">subjectListView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__51">
+      <from-activity-id id="__52">createOrEditSubjectView</from-activity-id>
+      <control-flow-case id="__53">
+        <from-outcome id="__54">backToListView</from-outcome>
+        <to-activity-id id="__55">refreshSubjectVO</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

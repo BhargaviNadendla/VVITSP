@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1" title="View Query">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="vertical"
+                             inlineStyle="min-height: 90px;">
+          <af:spacer width="10" height="20" id="s1"/>
+          <af:panelGroupLayout id="pgl3" halign="left" layout="vertical"
+                               styleClass="AFStretchWidth">
+            <af:panelFormLayout id="pfl1">
+              <af:panelLabelAndMessage for="ot1" id="plam6" label="Question"
+                                       labelStyle="font-weight: bold; font-size: 12px; vertical-align: top;">
+                <af:outputText value="#{pageFlowScope.viewQueryDetailsBean.question}"
+                               id="ot1"/>
+              </af:panelLabelAndMessage>
+              <af:spacer height="10px" id="s5"/>
+              <af:panelLabelAndMessage for="ot2" id="plam1" label="Answer"
+                                       labelStyle="font-weight: bold; font-size: 12px; vertical-align: top;">
+                <af:outputText value="#{pageFlowScope.viewQueryDetailsBean.answer}"
+                               id="ot2"/>
+              </af:panelLabelAndMessage>
+            </af:panelFormLayout>
+          </af:panelGroupLayout>
+          <af:spacer height="10px" id="s2"/>
+          <af:panelGroupLayout layout="horizontal" id="pgl2" halign="center">
+            <af:commandButton action="backToListView" text="Ok" id="cb2"
+                              immediate="true"/>
+          </af:panelGroupLayout>
+          <af:spacer width="10" height="20" id="s4"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

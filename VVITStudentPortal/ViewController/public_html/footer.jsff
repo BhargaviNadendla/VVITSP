@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+          <af:resource type="css">
+                          
+                @import "http://fonts.googleapis.com/css?family=Open+Sans";
+                @import "http://fonts.googleapis.com/css?family=Roboto";
+                body {
+                    background: #f0f2f4 url("../img/bbg.png") no-repeat scroll 0 0;
+                    font-family: "Open Sans",sans-serif;
+                    font-size: 14px;
+                }
+                .container1 {
+                    background: #f0806c none repeat scroll 0 0;
+                    height: auto;
+                    left: 0;
+                    margin: 0 auto;
+                    right: 0;
+                    width: 100%;
+                }
+                .logo1 {
+                    height: auto;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+                .logo2 {
+                    color: #fff;
+                    float: right;
+                    font-size: 25px;
+                    font-style: italic;
+                    padding-top: 40px;
+                    text-align: right;
+                }
+                .topmenu {
+                    float: right;
+                    padding: 5px;
+                }
+                .topmenu a {
+                    color: #ffffff;
+                    font-family: "Roboto",sans-serif;
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding: 10px;
+                    text-decoration: none;
+                }
+                .middlesection {
+                    background: #dde1e7 none repeat scroll 0 0;
+                    border-left: 1px solid #bdc4cf;
+                    border-right: 1px solid #bdc4cf;
+                    height: auto;
+                    padding: 20px 10px;
+                    width: 100%;
+                }
+                .middlesection1 {
+                    background: #fff none repeat scroll 0 0;
+                    border-left: 1px solid #ccc;
+                    border-right: 1px solid #ccc;
+                    height: auto;
+                    padding: 20px 10px;
+                    width: 100%;
+                }
+                .admissions img {
+                    border: 1px solid #999999;
+                    height: auto;
+                    padding: 2px;
+                    width: 100%;
+                }
+                .admissions h2 {
+                    color: #006699;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+                .admissions p {
+                    color: #333333;
+                    font-size: 13px;
+                    line-height: 21px;
+                    text-align: justify;
+                }
+                .admissions .readmore a {
+                    color: #006699;
+                    text-decoration: underline;
+                }
+                .admissions ul {
+                    margin: 0 0 0 20px;
+                    padding: 0;
+                }
+                .admissions ul li {
+                    list-style: outside none none;
+                    margin: 0;
+                    padding: 0;
+                }
+                .admissions ul li a {
+                    background: rgba(0, 0, 0, 0) url("../img/arrow.png") no-repeat scroll 0 10px;
+                    border-bottom: 1px dotted #999999;
+                    color: #333333;
+                    display: block;
+                    margin: 0;
+                    padding: 7px 0 7px 25px;
+                }
+                .admissions ul li a:hover {
+                    color: #006699;
+                }
+                .glimg img {
+                    height: auto;
+                    max-width: 250px;
+                    width: 100%;
+                }
+                .news h2 {
+                    color: #006699;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+                .news p {
+                    color: #333333;
+                    font-size: 13px;
+                    line-height: 21px;
+                    text-align: justify;
+                }
+                .news span {
+                    color: #990000;
+                    display: block;
+                    font-size: 11px;
+                    font-style: italic;
+                }
+                .news a {
+                    border-bottom: 1px dotted #999999;
+                    color: #333333;
+                    display: block;
+                    margin: 0;
+                    padding: 0 0 5px;
+                }
+                .news a:hover {
+                    color: #006699;
+                }
+                .footer {
+                    background: #dde1e7 none repeat scroll 0 0;
+                    border-left: 1px solid #bdc4cf;
+                    border-right: 1px solid #bdc4cf;
+                    height: auto;
+                    padding: 20px 10px;
+                    width: 100%;
+                }
+                .footer h2 {
+                    color: #006699;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+                .footer ul {
+                    margin: 0;
+                    padding: 0;
+                }
+                .footer ul li {
+                    list-style: outside none none;
+                    margin: 0;
+                    padding: 0;
+                }
+                .footer ul li a {
+                    border-bottom: 1px dotted #999999;
+                    color: #333333;
+                    display: block;
+                    font-size: 12px;
+                    margin: 0;
+                    padding: 3px;
+                }
+                .footer ul li a:hover {
+                    color: #006699;
+                }
+                .footercontainer {
+                    background: #272727 none repeat scroll 0 0;
+                    border-top: 1px solid #666666;
+                    bottom: 0;
+                    height: auto;
+                    left: 0;
+                    margin: 0 auto;
+                    padding: 15px;
+                    right: 0;
+                    width: 100%;
+                }
+                .footercontainer p {
+                    color: #ffffff;
+                    font-size: 12px;
+                    line-height: 21px;
+                    text-align: center;
+                }
+                .footercontainer p a {
+                    color: #f0806c;
+                    text-decoration: none;
+                }
+                .footercontainer p a:hover {
+                    color: #ccc;
+                }
+                .innerpagetop {
+                    background: #016481 none repeat scroll 0 0;
+                    height: 196px;
+                    margin-left: 15px;
+                }
+                .innerpage {
+                    background: #016481 none repeat scroll 0 0;
+                    color: #ffffff;
+                    padding: 10px;
+                    vertical-align: middle;
+                }
+                .innerpage h2 {
+                    font-size: 24px;
+                    line-height: 22px;
+                    padding-top: 12%;
+                    text-align: center;
+                }
+                .innerright1 {
+                    margin-left: -15px;
+                    margin-right: -70px;
+                    overflow: hidden;
+                }
+                .innerright1 img {
+                    height: auto;
+                    max-height: 196px;
+                    width: 100%;
+                }
+                .abut h2 {
+                    color: #006699;
+                    font-size: 16px;
+                    font-weight: 400;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+                .abut p {
+                    color: #333333;
+                    font-size: 12px;
+                    line-height: 21px;
+                    padding-bottom: 10px;
+                    padding-right: 10px;
+                    text-align: justify;
+                }
+                .abut span {
+                    color: #990000;
+                    display: block;
+                    font-size: 11px;
+                    font-style: italic;
+                }
+                .abut a {
+                    border-bottom: 1px dotted #999999;
+                    color: #333333;
+                    display: block;
+                    margin: 0;
+                    padding: 0 0 5px;
+                }
+                .abut a:hover {
+                    color: #006699;
+                }
+                .abutmenu img {
+                    border: 1px solid #999999;
+                    height: auto;
+                    padding: 2px;
+                    width: 100%;
+                }
+                .abutmenu h2 {
+                    color: #006699;
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin: 0;
+                    padding: 10px 0;
+                }
+                .abutmenu p {
+                    color: #333333;
+                    font-size: 12px;
+                    line-height: 22px;
+                    text-align: justify;
+                }
+                .abutmenu .readmore a {
+                    color: #006699;
+                    text-decoration: underline;
+                }
+                .abutmenu ul {
+                    margin: 0 0 0 7px;
+                    padding: 0;
+                }
+                .abutmenu ul li {
+                    list-style: outside none none;
+                    margin: 0;
+                    padding: 0;
+                }
+                .abutmenu ul li a {
+                    background: rgba(0, 0, 0, 0) url("../img/arrow.png") no-repeat scroll 0 10px;
+                    border-bottom: 1px dotted #999999;
+                    color: #333333;
+                    display: block;
+                    font-size: 12px;
+                    margin: 0;
+                    padding: 7px 0 7px 25px;
+                }
+                .abutmenu ul li a:hover {
+                    color: #006699;
+                }
+                @media all and (max-width: 768px), not all, only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), not all, not all, only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+                .logo2 {
+                    display: none;
+                }
+                .topmenu {
+                    display: none;
+                }
+                .logo1 img {
+                    height: auto;
+                    max-width: 100px;
+                    width: 85%;
+                }
+                .logo1 {
+                    text-align: center;
+                }
+                .glimg img {
+                    display: none;
+                }
+                .innerpagetop {
+                    background: #016481 none repeat scroll 0 0;
+                    height: auto;
+                    margin-left: 15px;
+                    margin-right: 15px;
+                }
+                .innerright1 {
+                    margin-left: 0;
+                    margin-right: 0;
+                    overflow: hidden;
+                }
+}
+
+          </af:resource>
+ <div class="footercontainer">
+  <div class="container">
+   <div class="row clearfix">
+    <div class="col-md-12 column">
+     <p>
+      <a href="#">Copyright &amp;copy;2015</a>,Vasireddy Venkatadri Institute of
+                                              Technology. All rights reserved.<br>
+       Contact
+       <a href="./default.html"> VVIT </a>
+       College : 0863 2293336 | City Center : 0863 2234336 |
+       <a href="http://www.facebook.com/vvitgunturofficial">Facebook</a>
+      </br>
+     </p>
+    </div>
+   </div>
+  </div>
+ </div>
+
+</jsp:root>

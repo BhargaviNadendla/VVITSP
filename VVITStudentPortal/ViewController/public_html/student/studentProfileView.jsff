@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:spacer id="s1" height="20px"/>
+    <af:panelGroupLayout id="pgl2" layout="vertical" halign="left">
+      <af:panelFormLayout id="pfl1">
+        <af:panelLabelAndMessage id="plam1" label="Registered No:"
+                                 labelStyle="font-size: 12px; font-weight: bold;">
+          <af:outputText id="ot1"
+                         value="#{pageFlowScope.studentProfileBean.student.rollNo}"/>
+        </af:panelLabelAndMessage>
+        <af:spacer id="s2" height="10px"/>
+        <af:panelLabelAndMessage id="plam2" label="Name:"
+                                 labelStyle="font-size: 12px; font-weight: bold;">
+          <af:outputText id="ot2" inlineStyle="padding-right:5px"
+                         value="#{pageFlowScope.studentProfileBean.student.firstName}"/>
+          <af:outputText id="ot3"
+                         value="#{pageFlowScope.studentProfileBean.student.lastName}"/>
+        </af:panelLabelAndMessage>
+        <af:spacer id="s3" height="10px"/>
+        <af:panelLabelAndMessage id="plam3" label="Email:"
+                                 labelStyle="font-size: 12px; font-weight: bold;">
+          <af:outputText id="ot4"
+                         value="#{pageFlowScope.studentProfileBean.user.email}"/>
+        </af:panelLabelAndMessage>
+        <af:spacer id="s4" height="10px"/>
+        <af:panelLabelAndMessage id="plam4" label="Phone:"
+                                 labelStyle="font-size: 12px; font-weight: bold;">
+          <af:outputText id="ot5"
+                         value="#{pageFlowScope.studentProfileBean.student.phone}"/>
+        </af:panelLabelAndMessage>
+        <af:spacer id="s5" height="10px"/>
+        <af:panelLabelAndMessage id="plam5" label="Mobile:"
+                                 labelStyle="font-size: 12px; font-weight: bold;">
+          <af:outputText id="ot6"
+                         value="#{pageFlowScope.studentProfileBean.student.mobile}"/>
+        </af:panelLabelAndMessage>
+        <af:spacer id="s6" height="10px"/>
+        <af:panelLabelAndMessage id="plam6" label="Address:"
+                                 labelStyle="font-size: 12px; font-weight: bold;">
+          <af:outputText id="ot7"
+                         value="#{pageFlowScope.studentProfileBean.student.address}"/>
+        </af:panelLabelAndMessage>
+        <af:spacer id="s7" height="10px"/>
+      </af:panelFormLayout>
+      <af:panelGroupLayout id="pgl3" layout="horizontal">
+        <af:commandButton id="cb1" text="Change Password"
+                          action="changePassword"/>
+        <af:spacer width="10px" id="s8"/>
+        <af:commandButton id="cb2" text="Update Profile"
+                          action="updateProfile"/>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

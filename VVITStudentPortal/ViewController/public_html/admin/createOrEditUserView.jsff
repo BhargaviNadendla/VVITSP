@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGroupLayout layout="scroll" id="pgl1">
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+            <af:outputText id="ot1" value="Create Staff"
+                           inlineStyle="font-size: 14px; font-weight: bold;"/>
+            <af:spacer height="10px" id="s1"/>
+            <af:panelGroupLayout id="pgl5" halign="left" layout="vertical"
+                                 styleClass="AFStretchWidth">
+                <af:outputText id="ot2" escape="false"
+                               value="#{pageFlowScope.userCrudBean.errors}"
+                               rendered="#{pageFlowScope.userCrudBean.registerationFailed}"/>
+                <af:spacer id="s9"
+                           rendered="#{pageFlowScope.userCrudBean.registerationFailed}"
+                           height="10px"/>
+            </af:panelGroupLayout>
+            <af:panelFormLayout id="pfl1" maxColumns="2" rows="4">
+                <af:panelLabelAndMessage for="soc1" id="plam1" label="* Branch"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:selectOneChoice id="soc1" label="Branch"
+                                        autoSubmit="true" required="true"
+                                        value="#{pageFlowScope.userCrudBean.branchId}"
+                                        requiredMessageDetail="Select at least one Branch"
+                                        simple="true">
+                        <f:selectItems id="si1"
+                                       value="#{pageFlowScope.userCrudBean.branches}"/>
+                    </af:selectOneChoice>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s5"/>
+                <af:panelLabelAndMessage for="it2" id="plam5"
+                                         label="* First Name"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.userCrudBean.firstName}"
+                                  simple="true" id="it2" required="true"
+                                  label="First Name"
+                                  requiredMessageDetail="First Name is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s6"/>
+                <af:panelLabelAndMessage for="it3" id="plam6"
+                                         label="* Last Name"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.userCrudBean.lastName}"
+                                  label="Last Name" simple="true" id="it3"
+                                  required="true"
+                                  requiredMessageDetail="Last Name is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s7"/>
+                <af:panelLabelAndMessage for="soc4" id="plam12" label="* Gender"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:selectOneChoice id="soc4" label="Gender"
+                                        autoSubmit="true" required="true"
+                                        value="#{pageFlowScope.userCrudBean.genderType}"
+                                        requiredMessageDetail="Select at least one Gender"
+                                        simple="true">
+                        <f:selectItems id="si4"
+                                       value="#{pageFlowScope.userCrudBean.genderTypes}"/>
+                    </af:selectOneChoice>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s12"/>
+                <af:panelLabelAndMessage for="it4" id="plam7" label="* Email"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.userCrudBean.email}"
+                                  simple="true" id="it4" required="true"
+                                  label="Email"
+                                  requiredMessageDetail="Email is mandatory"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s8"/>
+                <af:selectBooleanCheckbox autoSubmit="true" simple="true"
+                                          value="#{pageFlowScope.userCrudBean.hod}"
+                                          text="Is this Admin User, HOD of selected Branch"
+                                          id="sbc1"
+                                          contentStyle="margin-left: -7px; font-weight:bold; font-size: 12px;"/>
+                <af:spacer height="10px" id="s15"/>
+                <af:panelLabelAndMessage for="it6" id="plam9" label="Mobile"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.userCrudBean.mobile}"
+                                  simple="true" id="it6"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s10"/>
+                <af:panelLabelAndMessage for="it7" id="plam10" label="Phone"
+                                         labelStyle="font-weight: bold; font-size: 12px;">
+                    <af:inputText value="#{pageFlowScope.userCrudBean.phone}"
+                                  simple="true" id="it7"/>
+                </af:panelLabelAndMessage>
+                <af:spacer height="10px" id="s11"/>
+            </af:panelFormLayout>
+            <af:panelGroupLayout layout="horizontal" halign="left" id="pgl3">
+                <af:commandButton text="Save" id="cb2"
+                                  action="#{pageFlowScope.userCrudBean.createOrEditStaffDetailsAction}"/>
+                <af:spacer width="10px" id="s13"/>
+                <af:commandButton text="Cancel" immediate="true" id="cb1"
+                                  action="refresh"/>
+            </af:panelGroupLayout>
+        </af:panelGroupLayout>
+    </af:panelGroupLayout>
+</jsp:root>
